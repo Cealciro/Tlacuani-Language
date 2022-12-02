@@ -1,0 +1,47 @@
+PROGRAM Fibbo;
+VAR :
+   y:int;
+   v[5 .. 1]:int;
+   x:int;
+   z:float;
+   w:char;
+
+FUNC int fib (a:int, b:int, d:char) ;
+VAR :
+   c:int;
+   t1:int;
+   t2:int;
+   t3:int;
+{
+   t1 = 0;
+   t2 = 1;
+   IF (a > 0) THEN {
+      PRINT(t1);
+   };
+   IF (a > 1) THEN {
+      PRINT(t2);
+   };
+   t3 = t1 + t2;
+   c = 3;
+   WHILE (a >= c) DO {
+      PRINT(t3);
+      t1 = t2;
+      t2 = t3;
+      t3 = t1 + t2;
+      c = 1 + c;
+   }
+   RETURN b + 4 - 9;
+}
+
+MAIN ()
+{
+   x = 1;
+   y = 2;
+   w = 'c';
+   z = (x+y*3)/4;
+   READ : x;
+   x = fib (x - 2, 2, 'x');
+   
+   PRINT ( x );
+}
+

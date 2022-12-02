@@ -1,0 +1,33 @@
+PROGRAM TestCorrect;
+VAR :
+   y:int;
+   x:int;
+   m:int;
+   z:float;
+   w[2 .. 2]:int;
+   v[4 .. 6]: int;
+MAIN()
+{
+   
+   x = 2;
+   m = 4;
+   y = 0;
+   v[ x+3 .. 3+m] = 4 ;
+   WHILE (x < 4) DO {
+
+      IF (x < 2) THEN {
+         WHILE (m < 2) DO {
+            w[m  .. x] = y;
+            PRINT ( w[m .. x]);
+            m = m + 1 ;
+            y = y + 1 ;
+         }
+         m=0;
+      };
+      x = x + 1;
+   }
+   PRINT(x);
+   
+   PRINT ( w[ v[3 .. 3] .. x]);
+}
+

@@ -1,0 +1,12 @@
+PROGRAM TestError;
+VAR :
+   x,y:INT;
+   z:FLOAT;
+{
+   x == 1;
+   y = 2;
+   z = (x+y*3)/4;
+   IF (z > "hola") THEN {
+      PRINT("hola mundo",(x+y));
+   }
+}

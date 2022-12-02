@@ -1,0 +1,28 @@
+PROGRAM Fact;
+VAR :
+   y:int;
+   x:int;
+
+FUNC int fac (a:int) ;
+VAR :
+   b : int;
+{
+    IF (a < 2) THEN {
+        b = a;
+    }
+    ELSE {
+         b = a * fac(a - 1);
+    };
+   RETURN b ;
+}
+
+MAIN ()
+{
+   x = 1;
+   y = 2;
+   READ : x;
+   x = fac (x);
+   
+   PRINT ( x );
+
+}

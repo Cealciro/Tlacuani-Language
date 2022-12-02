@@ -1,0 +1,24 @@
+PROGRAM TestCorrect;
+VAR:
+   y:int;
+   a:int;
+   x:int;
+   z:float;
+   w:char;
+MAIN ()
+{
+   a = - 1;
+   y = a - 1;
+   x = 35;
+   PRINT(y);
+   z = ( x + 3 * y)/4;
+   READ : x;
+   IF (z > 1) THEN {
+      PRINT("hola mundo", x);
+   }
+   ELSE {
+      PRINT("ayy lmao");
+   };
+
+}
+

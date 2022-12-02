@@ -1,0 +1,17 @@
+PROGRAM TestCorrect;
+VAR : 
+   y:int;
+   x:int;
+   z:float;
+   w:char;
+MAIN()
+{
+   x = 1;
+   y = 2;
+   z = (x+y*3)/4;
+   IF (z > x) THEN {
+      PRINT("hola mundo",(x+y));
+   };
+
+}
+

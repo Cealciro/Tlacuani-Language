@@ -1,0 +1,3474 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BOOLEAN
+    ENDL
+    FALSE
+    FOR
+    MEAN
+    MODE
+    NON_EQUAL
+    PLOTXY
+    TO
+    TRUE
+    VARY
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> PROGRAM ID SEMICOLON pVars gtm fun mein
+Rule 2     gtm -> <empty>
+Rule 3     pVars -> vars
+Rule 4     pVars -> empty
+Rule 5     vars -> VAR COLON vars2
+Rule 6     vars2 -> vare COLON type def SEMICOLON vars3
+Rule 7     vars3 -> vars2
+Rule 8     vars3 -> empty
+Rule 9     type -> INT
+Rule 10    type -> FLOAT
+Rule 11    type -> CHAR
+Rule 12    def -> <empty>
+Rule 13    vare -> ID ar
+Rule 14    ar -> L_SQ siz R_SQ
+Rule 15    ar -> empty
+Rule 16    siz -> CTEI mat
+Rule 17    mat -> DOT CTEI
+Rule 18    mat -> empty
+Rule 19    fun -> Fun fuc
+Rule 20    fun -> empty
+Rule 21    fuc -> fun
+Rule 22    Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+Rule 23    Ftype -> type
+Rule 24    Ftype -> VOID
+Rule 25    mst -> <empty>
+Rule 26    param -> ID COLON type xparam
+Rule 27    param -> empty
+Rule 28    xparam -> COMMA ID COLON type xparam
+Rule 29    xparam -> empty
+Rule 30    paran -> <empty>
+Rule 31    endfun -> <empty>
+Rule 32    mein -> MAIN pmain L_PAR R_PAR bloq
+Rule 33    pmain -> <empty>
+Rule 34    bloq -> L_COR statbloq R_COR
+Rule 35    statbloq -> estatuto statbloq
+Rule 36    statbloq -> empty
+Rule 37    estatuto -> cond
+Rule 38    estatuto -> whil
+Rule 39    estatuto -> prin
+Rule 40    estatuto -> asign
+Rule 41    estatuto -> mcall
+Rule 42    estatuto -> read
+Rule 43    estatuto -> ret
+Rule 44    mcall -> Mcall SEMICOLON
+Rule 45    Mcall -> ID chkmod L_PAR era cparam parck R_PAR
+Rule 46    chkmod -> <empty>
+Rule 47    era -> <empty>
+Rule 48    cparam -> expres cxparam
+Rule 49    cparam -> empty
+Rule 50    cxparam -> COMMA expres cxparam
+Rule 51    cxparam -> empty
+Rule 52    parck -> <empty>
+Rule 53    cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON
+Rule 54    conval -> <empty>
+Rule 55    conf -> <empty>
+Rule 56    condex -> ELSE jum bloq
+Rule 57    condex -> empty
+Rule 58    jum -> <empty>
+Rule 59    whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back
+Rule 60    wju -> <empty>
+Rule 61    back -> <empty>
+Rule 62    prin -> PRINT L_PAR str ptr R_PAR SEMICOLON
+Rule 63    ptr -> COMMA str ptr
+Rule 64    ptr -> empty
+Rule 65    str -> expres
+Rule 66    str -> CTES
+Rule 67    read -> READ COLON variable SEMICOLON
+Rule 68    asign -> variable ASSIGN expres SEMICOLON
+Rule 69    variable -> ID ch arr va
+Rule 70    arr -> L_SQ dim R_SQ
+Rule 71    arr -> empty
+Rule 72    dim -> expres mar
+Rule 73    mar -> DOT expres
+Rule 74    mar -> empty
+Rule 75    expres -> contr c
+Rule 76    c -> con contr c
+Rule 77    c -> empty
+Rule 78    con -> AND
+Rule 79    con -> OR
+Rule 80    contr -> exp cn
+Rule 81    cn -> cont exp cn
+Rule 82    cn -> empty
+Rule 83    cont -> EQUALS
+Rule 84    cont -> EQUAL_MAJOR
+Rule 85    cont -> EQUAL_MINOR
+Rule 86    cont -> LESS_THAN
+Rule 87    cont -> MORE_THAN
+Rule 88    cont -> NOT
+Rule 89    exp -> term t
+Rule 90    t -> opt term t
+Rule 91    t -> empty
+Rule 92    Un -> ADD
+Rule 93    Un -> DEC
+Rule 94    opt -> PLUS
+Rule 95    opt -> MINUS
+Rule 96    term -> fact f
+Rule 97    f -> fopt fact f
+Rule 98    f -> empty
+Rule 99    fopt -> MULT
+Rule 100   fopt -> DIV
+Rule 101   fact -> L_PAR expres R_PAR
+Rule 102   fact -> sign varcte
+Rule 103   sign -> opt
+Rule 104   sign -> Un
+Rule 105   sign -> empty
+Rule 106   varcte -> ID ch arr va
+Rule 107   varcte -> CTEC apC
+Rule 108   varcte -> CTES apS
+Rule 109   varcte -> CTEI apI
+Rule 110   varcte -> CTEF apF
+Rule 111   varcte -> Mcall call
+Rule 112   call -> <empty>
+Rule 113   ch -> <empty>
+Rule 114   va -> <empty>
+Rule 115   apC -> <empty>
+Rule 116   apS -> <empty>
+Rule 117   apI -> <empty>
+Rule 118   apF -> <empty>
+Rule 119   ret -> RETURN expres SEMICOLON
+Rule 120   empty -> <empty>
+
+Terminals, with rules where they appear
+
+ADD                  : 92
+AND                  : 78
+ASSIGN               : 68
+BOOLEAN              : 
+CHAR                 : 11
+COLON                : 5 6 26 28 67
+COMMA                : 28 50 63
+CTEC                 : 107
+CTEF                 : 110
+CTEI                 : 16 17 109
+CTES                 : 66 108
+DEC                  : 93
+DIV                  : 100
+DO                   : 59
+DOT                  : 17 73
+ELSE                 : 56
+ENDL                 : 
+EQUALS               : 83
+EQUAL_MAJOR          : 84
+EQUAL_MINOR          : 85
+FALSE                : 
+FLOAT                : 10
+FOR                  : 
+FUNC                 : 22
+ID                   : 1 13 22 26 28 45 69 106
+IF                   : 53
+INT                  : 9
+LESS_THAN            : 86
+L_COR                : 34
+L_PAR                : 22 32 45 53 59 62 101
+L_SQ                 : 14 70
+MAIN                 : 32
+MEAN                 : 
+MINUS                : 95
+MODE                 : 
+MORE_THAN            : 87
+MULT                 : 99
+NON_EQUAL            : 
+NOT                  : 88
+OR                   : 79
+PLOTXY               : 
+PLUS                 : 94
+PRINT                : 62
+PROGRAM              : 1
+READ                 : 67
+RETURN               : 119
+R_COR                : 34
+R_PAR                : 22 32 45 53 59 62 101
+R_SQ                 : 14 70
+SEMICOLON            : 1 6 22 44 53 62 67 68 119
+THEN                 : 53
+TO                   : 
+TRUE                 : 
+VAR                  : 5
+VARY                 : 
+VOID                 : 24
+WHILE                : 59
+error                : 
+
+Nonterminals, with rules where they appear
+
+Ftype                : 22
+Fun                  : 19
+Mcall                : 44 111
+Un                   : 104
+apC                  : 107
+apF                  : 110
+apI                  : 109
+apS                  : 108
+ar                   : 13
+arr                  : 69 106
+asign                : 40
+back                 : 59
+bloq                 : 22 32 53 56 59
+c                    : 75 76
+call                 : 111
+ch                   : 69 106
+chkmod               : 45
+cn                   : 80 81
+con                  : 76
+cond                 : 37
+condex               : 53
+conf                 : 53
+cont                 : 81
+contr                : 75 76
+conval               : 53 59
+cparam               : 45
+cxparam              : 48 50
+def                  : 6
+dim                  : 70
+empty                : 4 8 15 18 20 27 29 36 49 51 57 64 71 74 77 82 91 98 105
+endfun               : 22
+era                  : 45
+estatuto             : 35
+exp                  : 80 81
+expres               : 48 50 53 59 65 68 72 73 101 119
+f                    : 96 97
+fact                 : 96 97
+fopt                 : 97
+fuc                  : 19
+fun                  : 1 21
+gtm                  : 1
+jum                  : 56
+mar                  : 72
+mat                  : 16
+mcall                : 41
+mein                 : 1
+mst                  : 22
+opt                  : 90 103
+pVars                : 1 22
+param                : 22
+paran                : 22
+parck                : 45
+pmain                : 32
+prin                 : 39
+program              : 0
+ptr                  : 62 63
+read                 : 42
+ret                  : 43
+sign                 : 102
+siz                  : 14
+statbloq             : 34 35
+str                  : 62 63
+t                    : 89 90
+term                 : 89 90
+type                 : 6 23 26 28
+va                   : 69 106
+varcte               : 102
+vare                 : 6
+variable             : 67 68
+vars                 : 3
+vars2                : 5 7
+vars3                : 6
+whil                 : 38
+wju                  : 59
+xparam               : 26 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . PROGRAM ID SEMICOLON pVars gtm fun mein
+
+    PROGRAM         shift and go to state 2
+
+    program                        shift and go to state 1
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> PROGRAM . ID SEMICOLON pVars gtm fun mein
+
+    ID              shift and go to state 3
+
+
+state 3
+
+    (1) program -> PROGRAM ID . SEMICOLON pVars gtm fun mein
+
+    SEMICOLON       shift and go to state 4
+
+
+state 4
+
+    (1) program -> PROGRAM ID SEMICOLON . pVars gtm fun mein
+    (3) pVars -> . vars
+    (4) pVars -> . empty
+    (5) vars -> . VAR COLON vars2
+    (120) empty -> .
+
+    VAR             shift and go to state 8
+    FUNC            reduce using rule 120 (empty -> .)
+    MAIN            reduce using rule 120 (empty -> .)
+
+    pVars                          shift and go to state 5
+    vars                           shift and go to state 6
+    empty                          shift and go to state 7
+
+state 5
+
+    (1) program -> PROGRAM ID SEMICOLON pVars . gtm fun mein
+    (2) gtm -> .
+
+    FUNC            reduce using rule 2 (gtm -> .)
+    MAIN            reduce using rule 2 (gtm -> .)
+
+    gtm                            shift and go to state 9
+
+state 6
+
+    (3) pVars -> vars .
+
+    FUNC            reduce using rule 3 (pVars -> vars .)
+    MAIN            reduce using rule 3 (pVars -> vars .)
+    L_COR           reduce using rule 3 (pVars -> vars .)
+
+
+state 7
+
+    (4) pVars -> empty .
+
+    FUNC            reduce using rule 4 (pVars -> empty .)
+    MAIN            reduce using rule 4 (pVars -> empty .)
+    L_COR           reduce using rule 4 (pVars -> empty .)
+
+
+state 8
+
+    (5) vars -> VAR . COLON vars2
+
+    COLON           shift and go to state 10
+
+
+state 9
+
+    (1) program -> PROGRAM ID SEMICOLON pVars gtm . fun mein
+    (19) fun -> . Fun fuc
+    (20) fun -> . empty
+    (22) Fun -> . FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+    (120) empty -> .
+
+    FUNC            shift and go to state 14
+    MAIN            reduce using rule 120 (empty -> .)
+
+    fun                            shift and go to state 11
+    Fun                            shift and go to state 12
+    empty                          shift and go to state 13
+
+state 10
+
+    (5) vars -> VAR COLON . vars2
+    (6) vars2 -> . vare COLON type def SEMICOLON vars3
+    (13) vare -> . ID ar
+
+    ID              shift and go to state 17
+
+    vars2                          shift and go to state 15
+    vare                           shift and go to state 16
+
+state 11
+
+    (1) program -> PROGRAM ID SEMICOLON pVars gtm fun . mein
+    (32) mein -> . MAIN pmain L_PAR R_PAR bloq
+
+    MAIN            shift and go to state 19
+
+    mein                           shift and go to state 18
+
+state 12
+
+    (19) fun -> Fun . fuc
+    (21) fuc -> . fun
+    (19) fun -> . Fun fuc
+    (20) fun -> . empty
+    (22) Fun -> . FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+    (120) empty -> .
+
+    FUNC            shift and go to state 14
+    MAIN            reduce using rule 120 (empty -> .)
+
+    Fun                            shift and go to state 12
+    fuc                            shift and go to state 20
+    fun                            shift and go to state 21
+    empty                          shift and go to state 13
+
+state 13
+
+    (20) fun -> empty .
+
+    MAIN            reduce using rule 20 (fun -> empty .)
+
+
+state 14
+
+    (22) Fun -> FUNC . Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+    (23) Ftype -> . type
+    (24) Ftype -> . VOID
+    (9) type -> . INT
+    (10) type -> . FLOAT
+    (11) type -> . CHAR
+
+    VOID            shift and go to state 24
+    INT             shift and go to state 25
+    FLOAT           shift and go to state 26
+    CHAR            shift and go to state 27
+
+    Ftype                          shift and go to state 22
+    type                           shift and go to state 23
+
+state 15
+
+    (5) vars -> VAR COLON vars2 .
+
+    FUNC            reduce using rule 5 (vars -> VAR COLON vars2 .)
+    MAIN            reduce using rule 5 (vars -> VAR COLON vars2 .)
+    L_COR           reduce using rule 5 (vars -> VAR COLON vars2 .)
+
+
+state 16
+
+    (6) vars2 -> vare . COLON type def SEMICOLON vars3
+
+    COLON           shift and go to state 28
+
+
+state 17
+
+    (13) vare -> ID . ar
+    (14) ar -> . L_SQ siz R_SQ
+    (15) ar -> . empty
+    (120) empty -> .
+
+    L_SQ            shift and go to state 30
+    COLON           reduce using rule 120 (empty -> .)
+
+    ar                             shift and go to state 29
+    empty                          shift and go to state 31
+
+state 18
+
+    (1) program -> PROGRAM ID SEMICOLON pVars gtm fun mein .
+
+    $end            reduce using rule 1 (program -> PROGRAM ID SEMICOLON pVars gtm fun mein .)
+
+
+state 19
+
+    (32) mein -> MAIN . pmain L_PAR R_PAR bloq
+    (33) pmain -> .
+
+    L_PAR           reduce using rule 33 (pmain -> .)
+
+    pmain                          shift and go to state 32
+
+state 20
+
+    (19) fun -> Fun fuc .
+
+    MAIN            reduce using rule 19 (fun -> Fun fuc .)
+
+
+state 21
+
+    (21) fuc -> fun .
+
+    MAIN            reduce using rule 21 (fuc -> fun .)
+
+
+state 22
+
+    (22) Fun -> FUNC Ftype . ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+
+    ID              shift and go to state 33
+
+
+state 23
+
+    (23) Ftype -> type .
+
+    ID              reduce using rule 23 (Ftype -> type .)
+
+
+state 24
+
+    (24) Ftype -> VOID .
+
+    ID              reduce using rule 24 (Ftype -> VOID .)
+
+
+state 25
+
+    (9) type -> INT .
+
+    ID              reduce using rule 9 (type -> INT .)
+    SEMICOLON       reduce using rule 9 (type -> INT .)
+    COMMA           reduce using rule 9 (type -> INT .)
+    R_PAR           reduce using rule 9 (type -> INT .)
+
+
+state 26
+
+    (10) type -> FLOAT .
+
+    ID              reduce using rule 10 (type -> FLOAT .)
+    SEMICOLON       reduce using rule 10 (type -> FLOAT .)
+    COMMA           reduce using rule 10 (type -> FLOAT .)
+    R_PAR           reduce using rule 10 (type -> FLOAT .)
+
+
+state 27
+
+    (11) type -> CHAR .
+
+    ID              reduce using rule 11 (type -> CHAR .)
+    SEMICOLON       reduce using rule 11 (type -> CHAR .)
+    COMMA           reduce using rule 11 (type -> CHAR .)
+    R_PAR           reduce using rule 11 (type -> CHAR .)
+
+
+state 28
+
+    (6) vars2 -> vare COLON . type def SEMICOLON vars3
+    (9) type -> . INT
+    (10) type -> . FLOAT
+    (11) type -> . CHAR
+
+    INT             shift and go to state 25
+    FLOAT           shift and go to state 26
+    CHAR            shift and go to state 27
+
+    type                           shift and go to state 34
+
+state 29
+
+    (13) vare -> ID ar .
+
+    COLON           reduce using rule 13 (vare -> ID ar .)
+
+
+state 30
+
+    (14) ar -> L_SQ . siz R_SQ
+    (16) siz -> . CTEI mat
+
+    CTEI            shift and go to state 36
+
+    siz                            shift and go to state 35
+
+state 31
+
+    (15) ar -> empty .
+
+    COLON           reduce using rule 15 (ar -> empty .)
+
+
+state 32
+
+    (32) mein -> MAIN pmain . L_PAR R_PAR bloq
+
+    L_PAR           shift and go to state 37
+
+
+state 33
+
+    (22) Fun -> FUNC Ftype ID . mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+    (25) mst -> .
+
+    L_PAR           reduce using rule 25 (mst -> .)
+
+    mst                            shift and go to state 38
+
+state 34
+
+    (6) vars2 -> vare COLON type . def SEMICOLON vars3
+    (12) def -> .
+
+    SEMICOLON       reduce using rule 12 (def -> .)
+
+    def                            shift and go to state 39
+
+state 35
+
+    (14) ar -> L_SQ siz . R_SQ
+
+    R_SQ            shift and go to state 40
+
+
+state 36
+
+    (16) siz -> CTEI . mat
+    (17) mat -> . DOT CTEI
+    (18) mat -> . empty
+    (120) empty -> .
+
+    DOT             shift and go to state 42
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    mat                            shift and go to state 41
+    empty                          shift and go to state 43
+
+state 37
+
+    (32) mein -> MAIN pmain L_PAR . R_PAR bloq
+
+    R_PAR           shift and go to state 44
+
+
+state 38
+
+    (22) Fun -> FUNC Ftype ID mst . L_PAR param paran R_PAR SEMICOLON pVars bloq endfun
+
+    L_PAR           shift and go to state 45
+
+
+state 39
+
+    (6) vars2 -> vare COLON type def . SEMICOLON vars3
+
+    SEMICOLON       shift and go to state 46
+
+
+state 40
+
+    (14) ar -> L_SQ siz R_SQ .
+
+    COLON           reduce using rule 14 (ar -> L_SQ siz R_SQ .)
+
+
+state 41
+
+    (16) siz -> CTEI mat .
+
+    R_SQ            reduce using rule 16 (siz -> CTEI mat .)
+
+
+state 42
+
+    (17) mat -> DOT . CTEI
+
+    CTEI            shift and go to state 47
+
+
+state 43
+
+    (18) mat -> empty .
+
+    R_SQ            reduce using rule 18 (mat -> empty .)
+
+
+state 44
+
+    (32) mein -> MAIN pmain L_PAR R_PAR . bloq
+    (34) bloq -> . L_COR statbloq R_COR
+
+    L_COR           shift and go to state 49
+
+    bloq                           shift and go to state 48
+
+state 45
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR . param paran R_PAR SEMICOLON pVars bloq endfun
+    (26) param -> . ID COLON type xparam
+    (27) param -> . empty
+    (120) empty -> .
+
+    ID              shift and go to state 50
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    param                          shift and go to state 51
+    empty                          shift and go to state 52
+
+state 46
+
+    (6) vars2 -> vare COLON type def SEMICOLON . vars3
+    (7) vars3 -> . vars2
+    (8) vars3 -> . empty
+    (6) vars2 -> . vare COLON type def SEMICOLON vars3
+    (120) empty -> .
+    (13) vare -> . ID ar
+
+    FUNC            reduce using rule 120 (empty -> .)
+    MAIN            reduce using rule 120 (empty -> .)
+    L_COR           reduce using rule 120 (empty -> .)
+    ID              shift and go to state 17
+
+    vare                           shift and go to state 16
+    vars3                          shift and go to state 53
+    vars2                          shift and go to state 54
+    empty                          shift and go to state 55
+
+state 47
+
+    (17) mat -> DOT CTEI .
+
+    R_SQ            reduce using rule 17 (mat -> DOT CTEI .)
+
+
+state 48
+
+    (32) mein -> MAIN pmain L_PAR R_PAR bloq .
+
+    $end            reduce using rule 32 (mein -> MAIN pmain L_PAR R_PAR bloq .)
+
+
+state 49
+
+    (34) bloq -> L_COR . statbloq R_COR
+    (35) statbloq -> . estatuto statbloq
+    (36) statbloq -> . empty
+    (37) estatuto -> . cond
+    (38) estatuto -> . whil
+    (39) estatuto -> . prin
+    (40) estatuto -> . asign
+    (41) estatuto -> . mcall
+    (42) estatuto -> . read
+    (43) estatuto -> . ret
+    (120) empty -> .
+    (53) cond -> . IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON
+    (59) whil -> . WHILE L_PAR wju expres conval R_PAR DO bloq back
+    (62) prin -> . PRINT L_PAR str ptr R_PAR SEMICOLON
+    (68) asign -> . variable ASSIGN expres SEMICOLON
+    (44) mcall -> . Mcall SEMICOLON
+    (67) read -> . READ COLON variable SEMICOLON
+    (119) ret -> . RETURN expres SEMICOLON
+    (69) variable -> . ID ch arr va
+    (45) Mcall -> . ID chkmod L_PAR era cparam parck R_PAR
+
+    R_COR           reduce using rule 120 (empty -> .)
+    IF              shift and go to state 66
+    WHILE           shift and go to state 67
+    PRINT           shift and go to state 68
+    READ            shift and go to state 71
+    RETURN          shift and go to state 72
+    ID              shift and go to state 73
+
+    statbloq                       shift and go to state 56
+    estatuto                       shift and go to state 57
+    empty                          shift and go to state 58
+    cond                           shift and go to state 59
+    whil                           shift and go to state 60
+    prin                           shift and go to state 61
+    asign                          shift and go to state 62
+    mcall                          shift and go to state 63
+    read                           shift and go to state 64
+    ret                            shift and go to state 65
+    variable                       shift and go to state 69
+    Mcall                          shift and go to state 70
+
+state 50
+
+    (26) param -> ID . COLON type xparam
+
+    COLON           shift and go to state 74
+
+
+state 51
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param . paran R_PAR SEMICOLON pVars bloq endfun
+    (30) paran -> .
+
+    R_PAR           reduce using rule 30 (paran -> .)
+
+    paran                          shift and go to state 75
+
+state 52
+
+    (27) param -> empty .
+
+    R_PAR           reduce using rule 27 (param -> empty .)
+
+
+state 53
+
+    (6) vars2 -> vare COLON type def SEMICOLON vars3 .
+
+    FUNC            reduce using rule 6 (vars2 -> vare COLON type def SEMICOLON vars3 .)
+    MAIN            reduce using rule 6 (vars2 -> vare COLON type def SEMICOLON vars3 .)
+    L_COR           reduce using rule 6 (vars2 -> vare COLON type def SEMICOLON vars3 .)
+
+
+state 54
+
+    (7) vars3 -> vars2 .
+
+    FUNC            reduce using rule 7 (vars3 -> vars2 .)
+    MAIN            reduce using rule 7 (vars3 -> vars2 .)
+    L_COR           reduce using rule 7 (vars3 -> vars2 .)
+
+
+state 55
+
+    (8) vars3 -> empty .
+
+    FUNC            reduce using rule 8 (vars3 -> empty .)
+    MAIN            reduce using rule 8 (vars3 -> empty .)
+    L_COR           reduce using rule 8 (vars3 -> empty .)
+
+
+state 56
+
+    (34) bloq -> L_COR statbloq . R_COR
+
+    R_COR           shift and go to state 76
+
+
+state 57
+
+    (35) statbloq -> estatuto . statbloq
+    (35) statbloq -> . estatuto statbloq
+    (36) statbloq -> . empty
+    (37) estatuto -> . cond
+    (38) estatuto -> . whil
+    (39) estatuto -> . prin
+    (40) estatuto -> . asign
+    (41) estatuto -> . mcall
+    (42) estatuto -> . read
+    (43) estatuto -> . ret
+    (120) empty -> .
+    (53) cond -> . IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON
+    (59) whil -> . WHILE L_PAR wju expres conval R_PAR DO bloq back
+    (62) prin -> . PRINT L_PAR str ptr R_PAR SEMICOLON
+    (68) asign -> . variable ASSIGN expres SEMICOLON
+    (44) mcall -> . Mcall SEMICOLON
+    (67) read -> . READ COLON variable SEMICOLON
+    (119) ret -> . RETURN expres SEMICOLON
+    (69) variable -> . ID ch arr va
+    (45) Mcall -> . ID chkmod L_PAR era cparam parck R_PAR
+
+    R_COR           reduce using rule 120 (empty -> .)
+    IF              shift and go to state 66
+    WHILE           shift and go to state 67
+    PRINT           shift and go to state 68
+    READ            shift and go to state 71
+    RETURN          shift and go to state 72
+    ID              shift and go to state 73
+
+    estatuto                       shift and go to state 57
+    statbloq                       shift and go to state 77
+    empty                          shift and go to state 58
+    cond                           shift and go to state 59
+    whil                           shift and go to state 60
+    prin                           shift and go to state 61
+    asign                          shift and go to state 62
+    mcall                          shift and go to state 63
+    read                           shift and go to state 64
+    ret                            shift and go to state 65
+    variable                       shift and go to state 69
+    Mcall                          shift and go to state 70
+
+state 58
+
+    (36) statbloq -> empty .
+
+    R_COR           reduce using rule 36 (statbloq -> empty .)
+
+
+state 59
+
+    (37) estatuto -> cond .
+
+    IF              reduce using rule 37 (estatuto -> cond .)
+    WHILE           reduce using rule 37 (estatuto -> cond .)
+    PRINT           reduce using rule 37 (estatuto -> cond .)
+    READ            reduce using rule 37 (estatuto -> cond .)
+    RETURN          reduce using rule 37 (estatuto -> cond .)
+    ID              reduce using rule 37 (estatuto -> cond .)
+    R_COR           reduce using rule 37 (estatuto -> cond .)
+
+
+state 60
+
+    (38) estatuto -> whil .
+
+    IF              reduce using rule 38 (estatuto -> whil .)
+    WHILE           reduce using rule 38 (estatuto -> whil .)
+    PRINT           reduce using rule 38 (estatuto -> whil .)
+    READ            reduce using rule 38 (estatuto -> whil .)
+    RETURN          reduce using rule 38 (estatuto -> whil .)
+    ID              reduce using rule 38 (estatuto -> whil .)
+    R_COR           reduce using rule 38 (estatuto -> whil .)
+
+
+state 61
+
+    (39) estatuto -> prin .
+
+    IF              reduce using rule 39 (estatuto -> prin .)
+    WHILE           reduce using rule 39 (estatuto -> prin .)
+    PRINT           reduce using rule 39 (estatuto -> prin .)
+    READ            reduce using rule 39 (estatuto -> prin .)
+    RETURN          reduce using rule 39 (estatuto -> prin .)
+    ID              reduce using rule 39 (estatuto -> prin .)
+    R_COR           reduce using rule 39 (estatuto -> prin .)
+
+
+state 62
+
+    (40) estatuto -> asign .
+
+    IF              reduce using rule 40 (estatuto -> asign .)
+    WHILE           reduce using rule 40 (estatuto -> asign .)
+    PRINT           reduce using rule 40 (estatuto -> asign .)
+    READ            reduce using rule 40 (estatuto -> asign .)
+    RETURN          reduce using rule 40 (estatuto -> asign .)
+    ID              reduce using rule 40 (estatuto -> asign .)
+    R_COR           reduce using rule 40 (estatuto -> asign .)
+
+
+state 63
+
+    (41) estatuto -> mcall .
+
+    IF              reduce using rule 41 (estatuto -> mcall .)
+    WHILE           reduce using rule 41 (estatuto -> mcall .)
+    PRINT           reduce using rule 41 (estatuto -> mcall .)
+    READ            reduce using rule 41 (estatuto -> mcall .)
+    RETURN          reduce using rule 41 (estatuto -> mcall .)
+    ID              reduce using rule 41 (estatuto -> mcall .)
+    R_COR           reduce using rule 41 (estatuto -> mcall .)
+
+
+state 64
+
+    (42) estatuto -> read .
+
+    IF              reduce using rule 42 (estatuto -> read .)
+    WHILE           reduce using rule 42 (estatuto -> read .)
+    PRINT           reduce using rule 42 (estatuto -> read .)
+    READ            reduce using rule 42 (estatuto -> read .)
+    RETURN          reduce using rule 42 (estatuto -> read .)
+    ID              reduce using rule 42 (estatuto -> read .)
+    R_COR           reduce using rule 42 (estatuto -> read .)
+
+
+state 65
+
+    (43) estatuto -> ret .
+
+    IF              reduce using rule 43 (estatuto -> ret .)
+    WHILE           reduce using rule 43 (estatuto -> ret .)
+    PRINT           reduce using rule 43 (estatuto -> ret .)
+    READ            reduce using rule 43 (estatuto -> ret .)
+    RETURN          reduce using rule 43 (estatuto -> ret .)
+    ID              reduce using rule 43 (estatuto -> ret .)
+    R_COR           reduce using rule 43 (estatuto -> ret .)
+
+
+state 66
+
+    (53) cond -> IF . L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON
+
+    L_PAR           shift and go to state 78
+
+
+state 67
+
+    (59) whil -> WHILE . L_PAR wju expres conval R_PAR DO bloq back
+
+    L_PAR           shift and go to state 79
+
+
+state 68
+
+    (62) prin -> PRINT . L_PAR str ptr R_PAR SEMICOLON
+
+    L_PAR           shift and go to state 80
+
+
+state 69
+
+    (68) asign -> variable . ASSIGN expres SEMICOLON
+
+    ASSIGN          shift and go to state 81
+
+
+state 70
+
+    (44) mcall -> Mcall . SEMICOLON
+
+    SEMICOLON       shift and go to state 82
+
+
+state 71
+
+    (67) read -> READ . COLON variable SEMICOLON
+
+    COLON           shift and go to state 83
+
+
+state 72
+
+    (119) ret -> RETURN . expres SEMICOLON
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 84
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 73
+
+    (69) variable -> ID . ch arr va
+    (45) Mcall -> ID . chkmod L_PAR era cparam parck R_PAR
+    (113) ch -> .
+    (46) chkmod -> .
+
+    L_SQ            reduce using rule 113 (ch -> .)
+    ASSIGN          reduce using rule 113 (ch -> .)
+    L_PAR           reduce using rule 46 (chkmod -> .)
+
+    ch                             shift and go to state 98
+    chkmod                         shift and go to state 99
+
+state 74
+
+    (26) param -> ID COLON . type xparam
+    (9) type -> . INT
+    (10) type -> . FLOAT
+    (11) type -> . CHAR
+
+    INT             shift and go to state 25
+    FLOAT           shift and go to state 26
+    CHAR            shift and go to state 27
+
+    type                           shift and go to state 100
+
+state 75
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran . R_PAR SEMICOLON pVars bloq endfun
+
+    R_PAR           shift and go to state 101
+
+
+state 76
+
+    (34) bloq -> L_COR statbloq R_COR .
+
+    $end            reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    FUNC            reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    MAIN            reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    ELSE            reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    SEMICOLON       reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    IF              reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    WHILE           reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    PRINT           reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    READ            reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    RETURN          reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    ID              reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+    R_COR           reduce using rule 34 (bloq -> L_COR statbloq R_COR .)
+
+
+state 77
+
+    (35) statbloq -> estatuto statbloq .
+
+    R_COR           reduce using rule 35 (statbloq -> estatuto statbloq .)
+
+
+state 78
+
+    (53) cond -> IF L_PAR . expres conval R_PAR THEN bloq condex conf SEMICOLON
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 102
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 79
+
+    (59) whil -> WHILE L_PAR . wju expres conval R_PAR DO bloq back
+    (60) wju -> .
+
+    L_PAR           reduce using rule 60 (wju -> .)
+    PLUS            reduce using rule 60 (wju -> .)
+    MINUS           reduce using rule 60 (wju -> .)
+    ADD             reduce using rule 60 (wju -> .)
+    DEC             reduce using rule 60 (wju -> .)
+    ID              reduce using rule 60 (wju -> .)
+    CTEC            reduce using rule 60 (wju -> .)
+    CTES            reduce using rule 60 (wju -> .)
+    CTEI            reduce using rule 60 (wju -> .)
+    CTEF            reduce using rule 60 (wju -> .)
+
+    wju                            shift and go to state 103
+
+state 80
+
+    (62) prin -> PRINT L_PAR . str ptr R_PAR SEMICOLON
+    (65) str -> . expres
+    (66) str -> . CTES
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+  ! shift/reduce conflict for CTES resolved as shift
+    CTES            shift and go to state 106
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+  ! CTES            [ reduce using rule 120 (empty -> .) ]
+
+    str                            shift and go to state 104
+    expres                         shift and go to state 105
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 81
+
+    (68) asign -> variable ASSIGN . expres SEMICOLON
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 107
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 82
+
+    (44) mcall -> Mcall SEMICOLON .
+
+    IF              reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    WHILE           reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    PRINT           reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    READ            reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    RETURN          reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    ID              reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+    R_COR           reduce using rule 44 (mcall -> Mcall SEMICOLON .)
+
+
+state 83
+
+    (67) read -> READ COLON . variable SEMICOLON
+    (69) variable -> . ID ch arr va
+
+    ID              shift and go to state 109
+
+    variable                       shift and go to state 108
+
+state 84
+
+    (119) ret -> RETURN expres . SEMICOLON
+
+    SEMICOLON       shift and go to state 110
+
+
+state 85
+
+    (75) expres -> contr . c
+    (76) c -> . con contr c
+    (77) c -> . empty
+    (78) con -> . AND
+    (79) con -> . OR
+    (120) empty -> .
+
+    AND             shift and go to state 114
+    OR              shift and go to state 115
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    c                              shift and go to state 111
+    con                            shift and go to state 112
+    empty                          shift and go to state 113
+
+state 86
+
+    (80) contr -> exp . cn
+    (81) cn -> . cont exp cn
+    (82) cn -> . empty
+    (83) cont -> . EQUALS
+    (84) cont -> . EQUAL_MAJOR
+    (85) cont -> . EQUAL_MINOR
+    (86) cont -> . LESS_THAN
+    (87) cont -> . MORE_THAN
+    (88) cont -> . NOT
+    (120) empty -> .
+
+    EQUALS          shift and go to state 119
+    EQUAL_MAJOR     shift and go to state 120
+    EQUAL_MINOR     shift and go to state 121
+    LESS_THAN       shift and go to state 122
+    MORE_THAN       shift and go to state 123
+    NOT             shift and go to state 124
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    cn                             shift and go to state 116
+    cont                           shift and go to state 117
+    empty                          shift and go to state 118
+
+state 87
+
+    (89) exp -> term . t
+    (90) t -> . opt term t
+    (91) t -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (120) empty -> .
+
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    EQUALS          reduce using rule 120 (empty -> .)
+    EQUAL_MAJOR     reduce using rule 120 (empty -> .)
+    EQUAL_MINOR     reduce using rule 120 (empty -> .)
+    LESS_THAN       reduce using rule 120 (empty -> .)
+    MORE_THAN       reduce using rule 120 (empty -> .)
+    NOT             reduce using rule 120 (empty -> .)
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    t                              shift and go to state 125
+    opt                            shift and go to state 126
+    empty                          shift and go to state 127
+
+state 88
+
+    (96) term -> fact . f
+    (97) f -> . fopt fact f
+    (98) f -> . empty
+    (99) fopt -> . MULT
+    (100) fopt -> . DIV
+    (120) empty -> .
+
+    MULT            shift and go to state 131
+    DIV             shift and go to state 132
+    PLUS            reduce using rule 120 (empty -> .)
+    MINUS           reduce using rule 120 (empty -> .)
+    EQUALS          reduce using rule 120 (empty -> .)
+    EQUAL_MAJOR     reduce using rule 120 (empty -> .)
+    EQUAL_MINOR     reduce using rule 120 (empty -> .)
+    LESS_THAN       reduce using rule 120 (empty -> .)
+    MORE_THAN       reduce using rule 120 (empty -> .)
+    NOT             reduce using rule 120 (empty -> .)
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    f                              shift and go to state 128
+    fopt                           shift and go to state 129
+    empty                          shift and go to state 130
+
+state 89
+
+    (101) fact -> L_PAR . expres R_PAR
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 133
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 90
+
+    (102) fact -> sign . varcte
+    (106) varcte -> . ID ch arr va
+    (107) varcte -> . CTEC apC
+    (108) varcte -> . CTES apS
+    (109) varcte -> . CTEI apI
+    (110) varcte -> . CTEF apF
+    (111) varcte -> . Mcall call
+    (45) Mcall -> . ID chkmod L_PAR era cparam parck R_PAR
+
+    ID              shift and go to state 135
+    CTEC            shift and go to state 136
+    CTES            shift and go to state 137
+    CTEI            shift and go to state 138
+    CTEF            shift and go to state 139
+
+    varcte                         shift and go to state 134
+    Mcall                          shift and go to state 140
+
+state 91
+
+    (103) sign -> opt .
+
+    ID              reduce using rule 103 (sign -> opt .)
+    CTEC            reduce using rule 103 (sign -> opt .)
+    CTES            reduce using rule 103 (sign -> opt .)
+    CTEI            reduce using rule 103 (sign -> opt .)
+    CTEF            reduce using rule 103 (sign -> opt .)
+
+
+state 92
+
+    (104) sign -> Un .
+
+    ID              reduce using rule 104 (sign -> Un .)
+    CTEC            reduce using rule 104 (sign -> Un .)
+    CTES            reduce using rule 104 (sign -> Un .)
+    CTEI            reduce using rule 104 (sign -> Un .)
+    CTEF            reduce using rule 104 (sign -> Un .)
+
+
+state 93
+
+    (105) sign -> empty .
+
+    ID              reduce using rule 105 (sign -> empty .)
+    CTEC            reduce using rule 105 (sign -> empty .)
+    CTES            reduce using rule 105 (sign -> empty .)
+    CTEI            reduce using rule 105 (sign -> empty .)
+    CTEF            reduce using rule 105 (sign -> empty .)
+
+
+state 94
+
+    (94) opt -> PLUS .
+
+    ID              reduce using rule 94 (opt -> PLUS .)
+    CTEC            reduce using rule 94 (opt -> PLUS .)
+    CTES            reduce using rule 94 (opt -> PLUS .)
+    CTEI            reduce using rule 94 (opt -> PLUS .)
+    CTEF            reduce using rule 94 (opt -> PLUS .)
+    L_PAR           reduce using rule 94 (opt -> PLUS .)
+    PLUS            reduce using rule 94 (opt -> PLUS .)
+    MINUS           reduce using rule 94 (opt -> PLUS .)
+    ADD             reduce using rule 94 (opt -> PLUS .)
+    DEC             reduce using rule 94 (opt -> PLUS .)
+
+
+state 95
+
+    (95) opt -> MINUS .
+
+    ID              reduce using rule 95 (opt -> MINUS .)
+    CTEC            reduce using rule 95 (opt -> MINUS .)
+    CTES            reduce using rule 95 (opt -> MINUS .)
+    CTEI            reduce using rule 95 (opt -> MINUS .)
+    CTEF            reduce using rule 95 (opt -> MINUS .)
+    L_PAR           reduce using rule 95 (opt -> MINUS .)
+    PLUS            reduce using rule 95 (opt -> MINUS .)
+    MINUS           reduce using rule 95 (opt -> MINUS .)
+    ADD             reduce using rule 95 (opt -> MINUS .)
+    DEC             reduce using rule 95 (opt -> MINUS .)
+
+
+state 96
+
+    (92) Un -> ADD .
+
+    ID              reduce using rule 92 (Un -> ADD .)
+    CTEC            reduce using rule 92 (Un -> ADD .)
+    CTES            reduce using rule 92 (Un -> ADD .)
+    CTEI            reduce using rule 92 (Un -> ADD .)
+    CTEF            reduce using rule 92 (Un -> ADD .)
+
+
+state 97
+
+    (93) Un -> DEC .
+
+    ID              reduce using rule 93 (Un -> DEC .)
+    CTEC            reduce using rule 93 (Un -> DEC .)
+    CTES            reduce using rule 93 (Un -> DEC .)
+    CTEI            reduce using rule 93 (Un -> DEC .)
+    CTEF            reduce using rule 93 (Un -> DEC .)
+
+
+state 98
+
+    (69) variable -> ID ch . arr va
+    (70) arr -> . L_SQ dim R_SQ
+    (71) arr -> . empty
+    (120) empty -> .
+
+    L_SQ            shift and go to state 142
+    ASSIGN          reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+
+    arr                            shift and go to state 141
+    empty                          shift and go to state 143
+
+state 99
+
+    (45) Mcall -> ID chkmod . L_PAR era cparam parck R_PAR
+
+    L_PAR           shift and go to state 144
+
+
+state 100
+
+    (26) param -> ID COLON type . xparam
+    (28) xparam -> . COMMA ID COLON type xparam
+    (29) xparam -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 146
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    xparam                         shift and go to state 145
+    empty                          shift and go to state 147
+
+state 101
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR . SEMICOLON pVars bloq endfun
+
+    SEMICOLON       shift and go to state 148
+
+
+state 102
+
+    (53) cond -> IF L_PAR expres . conval R_PAR THEN bloq condex conf SEMICOLON
+    (54) conval -> .
+
+    R_PAR           reduce using rule 54 (conval -> .)
+
+    conval                         shift and go to state 149
+
+state 103
+
+    (59) whil -> WHILE L_PAR wju . expres conval R_PAR DO bloq back
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 150
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 104
+
+    (62) prin -> PRINT L_PAR str . ptr R_PAR SEMICOLON
+    (63) ptr -> . COMMA str ptr
+    (64) ptr -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 152
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    ptr                            shift and go to state 151
+    empty                          shift and go to state 153
+
+state 105
+
+    (65) str -> expres .
+
+    COMMA           reduce using rule 65 (str -> expres .)
+    R_PAR           reduce using rule 65 (str -> expres .)
+
+
+state 106
+
+    (66) str -> CTES .
+
+    COMMA           reduce using rule 66 (str -> CTES .)
+    R_PAR           reduce using rule 66 (str -> CTES .)
+
+
+state 107
+
+    (68) asign -> variable ASSIGN expres . SEMICOLON
+
+    SEMICOLON       shift and go to state 154
+
+
+state 108
+
+    (67) read -> READ COLON variable . SEMICOLON
+
+    SEMICOLON       shift and go to state 155
+
+
+state 109
+
+    (69) variable -> ID . ch arr va
+    (113) ch -> .
+
+    L_SQ            reduce using rule 113 (ch -> .)
+    SEMICOLON       reduce using rule 113 (ch -> .)
+
+    ch                             shift and go to state 98
+
+state 110
+
+    (119) ret -> RETURN expres SEMICOLON .
+
+    IF              reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    WHILE           reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    PRINT           reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    READ            reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    RETURN          reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    ID              reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+    R_COR           reduce using rule 119 (ret -> RETURN expres SEMICOLON .)
+
+
+state 111
+
+    (75) expres -> contr c .
+
+    SEMICOLON       reduce using rule 75 (expres -> contr c .)
+    R_PAR           reduce using rule 75 (expres -> contr c .)
+    COMMA           reduce using rule 75 (expres -> contr c .)
+    DOT             reduce using rule 75 (expres -> contr c .)
+    R_SQ            reduce using rule 75 (expres -> contr c .)
+
+
+state 112
+
+    (76) c -> con . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    contr                          shift and go to state 156
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 113
+
+    (77) c -> empty .
+
+    SEMICOLON       reduce using rule 77 (c -> empty .)
+    R_PAR           reduce using rule 77 (c -> empty .)
+    COMMA           reduce using rule 77 (c -> empty .)
+    DOT             reduce using rule 77 (c -> empty .)
+    R_SQ            reduce using rule 77 (c -> empty .)
+
+
+state 114
+
+    (78) con -> AND .
+
+    L_PAR           reduce using rule 78 (con -> AND .)
+    PLUS            reduce using rule 78 (con -> AND .)
+    MINUS           reduce using rule 78 (con -> AND .)
+    ADD             reduce using rule 78 (con -> AND .)
+    DEC             reduce using rule 78 (con -> AND .)
+    ID              reduce using rule 78 (con -> AND .)
+    CTEC            reduce using rule 78 (con -> AND .)
+    CTES            reduce using rule 78 (con -> AND .)
+    CTEI            reduce using rule 78 (con -> AND .)
+    CTEF            reduce using rule 78 (con -> AND .)
+
+
+state 115
+
+    (79) con -> OR .
+
+    L_PAR           reduce using rule 79 (con -> OR .)
+    PLUS            reduce using rule 79 (con -> OR .)
+    MINUS           reduce using rule 79 (con -> OR .)
+    ADD             reduce using rule 79 (con -> OR .)
+    DEC             reduce using rule 79 (con -> OR .)
+    ID              reduce using rule 79 (con -> OR .)
+    CTEC            reduce using rule 79 (con -> OR .)
+    CTES            reduce using rule 79 (con -> OR .)
+    CTEI            reduce using rule 79 (con -> OR .)
+    CTEF            reduce using rule 79 (con -> OR .)
+
+
+state 116
+
+    (80) contr -> exp cn .
+
+    AND             reduce using rule 80 (contr -> exp cn .)
+    OR              reduce using rule 80 (contr -> exp cn .)
+    SEMICOLON       reduce using rule 80 (contr -> exp cn .)
+    R_PAR           reduce using rule 80 (contr -> exp cn .)
+    COMMA           reduce using rule 80 (contr -> exp cn .)
+    DOT             reduce using rule 80 (contr -> exp cn .)
+    R_SQ            reduce using rule 80 (contr -> exp cn .)
+
+
+state 117
+
+    (81) cn -> cont . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    exp                            shift and go to state 157
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 118
+
+    (82) cn -> empty .
+
+    AND             reduce using rule 82 (cn -> empty .)
+    OR              reduce using rule 82 (cn -> empty .)
+    SEMICOLON       reduce using rule 82 (cn -> empty .)
+    R_PAR           reduce using rule 82 (cn -> empty .)
+    COMMA           reduce using rule 82 (cn -> empty .)
+    DOT             reduce using rule 82 (cn -> empty .)
+    R_SQ            reduce using rule 82 (cn -> empty .)
+
+
+state 119
+
+    (83) cont -> EQUALS .
+
+    L_PAR           reduce using rule 83 (cont -> EQUALS .)
+    PLUS            reduce using rule 83 (cont -> EQUALS .)
+    MINUS           reduce using rule 83 (cont -> EQUALS .)
+    ADD             reduce using rule 83 (cont -> EQUALS .)
+    DEC             reduce using rule 83 (cont -> EQUALS .)
+    ID              reduce using rule 83 (cont -> EQUALS .)
+    CTEC            reduce using rule 83 (cont -> EQUALS .)
+    CTES            reduce using rule 83 (cont -> EQUALS .)
+    CTEI            reduce using rule 83 (cont -> EQUALS .)
+    CTEF            reduce using rule 83 (cont -> EQUALS .)
+
+
+state 120
+
+    (84) cont -> EQUAL_MAJOR .
+
+    L_PAR           reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    PLUS            reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    MINUS           reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    ADD             reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    DEC             reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    ID              reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    CTEC            reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    CTES            reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    CTEI            reduce using rule 84 (cont -> EQUAL_MAJOR .)
+    CTEF            reduce using rule 84 (cont -> EQUAL_MAJOR .)
+
+
+state 121
+
+    (85) cont -> EQUAL_MINOR .
+
+    L_PAR           reduce using rule 85 (cont -> EQUAL_MINOR .)
+    PLUS            reduce using rule 85 (cont -> EQUAL_MINOR .)
+    MINUS           reduce using rule 85 (cont -> EQUAL_MINOR .)
+    ADD             reduce using rule 85 (cont -> EQUAL_MINOR .)
+    DEC             reduce using rule 85 (cont -> EQUAL_MINOR .)
+    ID              reduce using rule 85 (cont -> EQUAL_MINOR .)
+    CTEC            reduce using rule 85 (cont -> EQUAL_MINOR .)
+    CTES            reduce using rule 85 (cont -> EQUAL_MINOR .)
+    CTEI            reduce using rule 85 (cont -> EQUAL_MINOR .)
+    CTEF            reduce using rule 85 (cont -> EQUAL_MINOR .)
+
+
+state 122
+
+    (86) cont -> LESS_THAN .
+
+    L_PAR           reduce using rule 86 (cont -> LESS_THAN .)
+    PLUS            reduce using rule 86 (cont -> LESS_THAN .)
+    MINUS           reduce using rule 86 (cont -> LESS_THAN .)
+    ADD             reduce using rule 86 (cont -> LESS_THAN .)
+    DEC             reduce using rule 86 (cont -> LESS_THAN .)
+    ID              reduce using rule 86 (cont -> LESS_THAN .)
+    CTEC            reduce using rule 86 (cont -> LESS_THAN .)
+    CTES            reduce using rule 86 (cont -> LESS_THAN .)
+    CTEI            reduce using rule 86 (cont -> LESS_THAN .)
+    CTEF            reduce using rule 86 (cont -> LESS_THAN .)
+
+
+state 123
+
+    (87) cont -> MORE_THAN .
+
+    L_PAR           reduce using rule 87 (cont -> MORE_THAN .)
+    PLUS            reduce using rule 87 (cont -> MORE_THAN .)
+    MINUS           reduce using rule 87 (cont -> MORE_THAN .)
+    ADD             reduce using rule 87 (cont -> MORE_THAN .)
+    DEC             reduce using rule 87 (cont -> MORE_THAN .)
+    ID              reduce using rule 87 (cont -> MORE_THAN .)
+    CTEC            reduce using rule 87 (cont -> MORE_THAN .)
+    CTES            reduce using rule 87 (cont -> MORE_THAN .)
+    CTEI            reduce using rule 87 (cont -> MORE_THAN .)
+    CTEF            reduce using rule 87 (cont -> MORE_THAN .)
+
+
+state 124
+
+    (88) cont -> NOT .
+
+    L_PAR           reduce using rule 88 (cont -> NOT .)
+    PLUS            reduce using rule 88 (cont -> NOT .)
+    MINUS           reduce using rule 88 (cont -> NOT .)
+    ADD             reduce using rule 88 (cont -> NOT .)
+    DEC             reduce using rule 88 (cont -> NOT .)
+    ID              reduce using rule 88 (cont -> NOT .)
+    CTEC            reduce using rule 88 (cont -> NOT .)
+    CTES            reduce using rule 88 (cont -> NOT .)
+    CTEI            reduce using rule 88 (cont -> NOT .)
+    CTEF            reduce using rule 88 (cont -> NOT .)
+
+
+state 125
+
+    (89) exp -> term t .
+
+    EQUALS          reduce using rule 89 (exp -> term t .)
+    EQUAL_MAJOR     reduce using rule 89 (exp -> term t .)
+    EQUAL_MINOR     reduce using rule 89 (exp -> term t .)
+    LESS_THAN       reduce using rule 89 (exp -> term t .)
+    MORE_THAN       reduce using rule 89 (exp -> term t .)
+    NOT             reduce using rule 89 (exp -> term t .)
+    AND             reduce using rule 89 (exp -> term t .)
+    OR              reduce using rule 89 (exp -> term t .)
+    SEMICOLON       reduce using rule 89 (exp -> term t .)
+    R_PAR           reduce using rule 89 (exp -> term t .)
+    COMMA           reduce using rule 89 (exp -> term t .)
+    DOT             reduce using rule 89 (exp -> term t .)
+    R_SQ            reduce using rule 89 (exp -> term t .)
+
+
+state 126
+
+    (90) t -> opt . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    opt                            shift and go to state 91
+    term                           shift and go to state 158
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 127
+
+    (91) t -> empty .
+
+    EQUALS          reduce using rule 91 (t -> empty .)
+    EQUAL_MAJOR     reduce using rule 91 (t -> empty .)
+    EQUAL_MINOR     reduce using rule 91 (t -> empty .)
+    LESS_THAN       reduce using rule 91 (t -> empty .)
+    MORE_THAN       reduce using rule 91 (t -> empty .)
+    NOT             reduce using rule 91 (t -> empty .)
+    AND             reduce using rule 91 (t -> empty .)
+    OR              reduce using rule 91 (t -> empty .)
+    SEMICOLON       reduce using rule 91 (t -> empty .)
+    R_PAR           reduce using rule 91 (t -> empty .)
+    COMMA           reduce using rule 91 (t -> empty .)
+    DOT             reduce using rule 91 (t -> empty .)
+    R_SQ            reduce using rule 91 (t -> empty .)
+
+
+state 128
+
+    (96) term -> fact f .
+
+    PLUS            reduce using rule 96 (term -> fact f .)
+    MINUS           reduce using rule 96 (term -> fact f .)
+    EQUALS          reduce using rule 96 (term -> fact f .)
+    EQUAL_MAJOR     reduce using rule 96 (term -> fact f .)
+    EQUAL_MINOR     reduce using rule 96 (term -> fact f .)
+    LESS_THAN       reduce using rule 96 (term -> fact f .)
+    MORE_THAN       reduce using rule 96 (term -> fact f .)
+    NOT             reduce using rule 96 (term -> fact f .)
+    AND             reduce using rule 96 (term -> fact f .)
+    OR              reduce using rule 96 (term -> fact f .)
+    SEMICOLON       reduce using rule 96 (term -> fact f .)
+    R_PAR           reduce using rule 96 (term -> fact f .)
+    COMMA           reduce using rule 96 (term -> fact f .)
+    DOT             reduce using rule 96 (term -> fact f .)
+    R_SQ            reduce using rule 96 (term -> fact f .)
+
+
+state 129
+
+    (97) f -> fopt . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    fact                           shift and go to state 159
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 130
+
+    (98) f -> empty .
+
+    PLUS            reduce using rule 98 (f -> empty .)
+    MINUS           reduce using rule 98 (f -> empty .)
+    EQUALS          reduce using rule 98 (f -> empty .)
+    EQUAL_MAJOR     reduce using rule 98 (f -> empty .)
+    EQUAL_MINOR     reduce using rule 98 (f -> empty .)
+    LESS_THAN       reduce using rule 98 (f -> empty .)
+    MORE_THAN       reduce using rule 98 (f -> empty .)
+    NOT             reduce using rule 98 (f -> empty .)
+    AND             reduce using rule 98 (f -> empty .)
+    OR              reduce using rule 98 (f -> empty .)
+    SEMICOLON       reduce using rule 98 (f -> empty .)
+    R_PAR           reduce using rule 98 (f -> empty .)
+    COMMA           reduce using rule 98 (f -> empty .)
+    DOT             reduce using rule 98 (f -> empty .)
+    R_SQ            reduce using rule 98 (f -> empty .)
+
+
+state 131
+
+    (99) fopt -> MULT .
+
+    L_PAR           reduce using rule 99 (fopt -> MULT .)
+    PLUS            reduce using rule 99 (fopt -> MULT .)
+    MINUS           reduce using rule 99 (fopt -> MULT .)
+    ADD             reduce using rule 99 (fopt -> MULT .)
+    DEC             reduce using rule 99 (fopt -> MULT .)
+    ID              reduce using rule 99 (fopt -> MULT .)
+    CTEC            reduce using rule 99 (fopt -> MULT .)
+    CTES            reduce using rule 99 (fopt -> MULT .)
+    CTEI            reduce using rule 99 (fopt -> MULT .)
+    CTEF            reduce using rule 99 (fopt -> MULT .)
+
+
+state 132
+
+    (100) fopt -> DIV .
+
+    L_PAR           reduce using rule 100 (fopt -> DIV .)
+    PLUS            reduce using rule 100 (fopt -> DIV .)
+    MINUS           reduce using rule 100 (fopt -> DIV .)
+    ADD             reduce using rule 100 (fopt -> DIV .)
+    DEC             reduce using rule 100 (fopt -> DIV .)
+    ID              reduce using rule 100 (fopt -> DIV .)
+    CTEC            reduce using rule 100 (fopt -> DIV .)
+    CTES            reduce using rule 100 (fopt -> DIV .)
+    CTEI            reduce using rule 100 (fopt -> DIV .)
+    CTEF            reduce using rule 100 (fopt -> DIV .)
+
+
+state 133
+
+    (101) fact -> L_PAR expres . R_PAR
+
+    R_PAR           shift and go to state 160
+
+
+state 134
+
+    (102) fact -> sign varcte .
+
+    MULT            reduce using rule 102 (fact -> sign varcte .)
+    DIV             reduce using rule 102 (fact -> sign varcte .)
+    PLUS            reduce using rule 102 (fact -> sign varcte .)
+    MINUS           reduce using rule 102 (fact -> sign varcte .)
+    EQUALS          reduce using rule 102 (fact -> sign varcte .)
+    EQUAL_MAJOR     reduce using rule 102 (fact -> sign varcte .)
+    EQUAL_MINOR     reduce using rule 102 (fact -> sign varcte .)
+    LESS_THAN       reduce using rule 102 (fact -> sign varcte .)
+    MORE_THAN       reduce using rule 102 (fact -> sign varcte .)
+    NOT             reduce using rule 102 (fact -> sign varcte .)
+    AND             reduce using rule 102 (fact -> sign varcte .)
+    OR              reduce using rule 102 (fact -> sign varcte .)
+    SEMICOLON       reduce using rule 102 (fact -> sign varcte .)
+    R_PAR           reduce using rule 102 (fact -> sign varcte .)
+    COMMA           reduce using rule 102 (fact -> sign varcte .)
+    DOT             reduce using rule 102 (fact -> sign varcte .)
+    R_SQ            reduce using rule 102 (fact -> sign varcte .)
+
+
+state 135
+
+    (106) varcte -> ID . ch arr va
+    (45) Mcall -> ID . chkmod L_PAR era cparam parck R_PAR
+    (113) ch -> .
+    (46) chkmod -> .
+
+    L_SQ            reduce using rule 113 (ch -> .)
+    MULT            reduce using rule 113 (ch -> .)
+    DIV             reduce using rule 113 (ch -> .)
+    PLUS            reduce using rule 113 (ch -> .)
+    MINUS           reduce using rule 113 (ch -> .)
+    EQUALS          reduce using rule 113 (ch -> .)
+    EQUAL_MAJOR     reduce using rule 113 (ch -> .)
+    EQUAL_MINOR     reduce using rule 113 (ch -> .)
+    LESS_THAN       reduce using rule 113 (ch -> .)
+    MORE_THAN       reduce using rule 113 (ch -> .)
+    NOT             reduce using rule 113 (ch -> .)
+    AND             reduce using rule 113 (ch -> .)
+    OR              reduce using rule 113 (ch -> .)
+    SEMICOLON       reduce using rule 113 (ch -> .)
+    R_PAR           reduce using rule 113 (ch -> .)
+    COMMA           reduce using rule 113 (ch -> .)
+    DOT             reduce using rule 113 (ch -> .)
+    R_SQ            reduce using rule 113 (ch -> .)
+    L_PAR           reduce using rule 46 (chkmod -> .)
+
+    ch                             shift and go to state 161
+    chkmod                         shift and go to state 99
+
+state 136
+
+    (107) varcte -> CTEC . apC
+    (115) apC -> .
+
+    MULT            reduce using rule 115 (apC -> .)
+    DIV             reduce using rule 115 (apC -> .)
+    PLUS            reduce using rule 115 (apC -> .)
+    MINUS           reduce using rule 115 (apC -> .)
+    EQUALS          reduce using rule 115 (apC -> .)
+    EQUAL_MAJOR     reduce using rule 115 (apC -> .)
+    EQUAL_MINOR     reduce using rule 115 (apC -> .)
+    LESS_THAN       reduce using rule 115 (apC -> .)
+    MORE_THAN       reduce using rule 115 (apC -> .)
+    NOT             reduce using rule 115 (apC -> .)
+    AND             reduce using rule 115 (apC -> .)
+    OR              reduce using rule 115 (apC -> .)
+    SEMICOLON       reduce using rule 115 (apC -> .)
+    R_PAR           reduce using rule 115 (apC -> .)
+    COMMA           reduce using rule 115 (apC -> .)
+    DOT             reduce using rule 115 (apC -> .)
+    R_SQ            reduce using rule 115 (apC -> .)
+
+    apC                            shift and go to state 162
+
+state 137
+
+    (108) varcte -> CTES . apS
+    (116) apS -> .
+
+    MULT            reduce using rule 116 (apS -> .)
+    DIV             reduce using rule 116 (apS -> .)
+    PLUS            reduce using rule 116 (apS -> .)
+    MINUS           reduce using rule 116 (apS -> .)
+    EQUALS          reduce using rule 116 (apS -> .)
+    EQUAL_MAJOR     reduce using rule 116 (apS -> .)
+    EQUAL_MINOR     reduce using rule 116 (apS -> .)
+    LESS_THAN       reduce using rule 116 (apS -> .)
+    MORE_THAN       reduce using rule 116 (apS -> .)
+    NOT             reduce using rule 116 (apS -> .)
+    AND             reduce using rule 116 (apS -> .)
+    OR              reduce using rule 116 (apS -> .)
+    SEMICOLON       reduce using rule 116 (apS -> .)
+    R_PAR           reduce using rule 116 (apS -> .)
+    COMMA           reduce using rule 116 (apS -> .)
+    DOT             reduce using rule 116 (apS -> .)
+    R_SQ            reduce using rule 116 (apS -> .)
+
+    apS                            shift and go to state 163
+
+state 138
+
+    (109) varcte -> CTEI . apI
+    (117) apI -> .
+
+    MULT            reduce using rule 117 (apI -> .)
+    DIV             reduce using rule 117 (apI -> .)
+    PLUS            reduce using rule 117 (apI -> .)
+    MINUS           reduce using rule 117 (apI -> .)
+    EQUALS          reduce using rule 117 (apI -> .)
+    EQUAL_MAJOR     reduce using rule 117 (apI -> .)
+    EQUAL_MINOR     reduce using rule 117 (apI -> .)
+    LESS_THAN       reduce using rule 117 (apI -> .)
+    MORE_THAN       reduce using rule 117 (apI -> .)
+    NOT             reduce using rule 117 (apI -> .)
+    AND             reduce using rule 117 (apI -> .)
+    OR              reduce using rule 117 (apI -> .)
+    SEMICOLON       reduce using rule 117 (apI -> .)
+    R_PAR           reduce using rule 117 (apI -> .)
+    COMMA           reduce using rule 117 (apI -> .)
+    DOT             reduce using rule 117 (apI -> .)
+    R_SQ            reduce using rule 117 (apI -> .)
+
+    apI                            shift and go to state 164
+
+state 139
+
+    (110) varcte -> CTEF . apF
+    (118) apF -> .
+
+    MULT            reduce using rule 118 (apF -> .)
+    DIV             reduce using rule 118 (apF -> .)
+    PLUS            reduce using rule 118 (apF -> .)
+    MINUS           reduce using rule 118 (apF -> .)
+    EQUALS          reduce using rule 118 (apF -> .)
+    EQUAL_MAJOR     reduce using rule 118 (apF -> .)
+    EQUAL_MINOR     reduce using rule 118 (apF -> .)
+    LESS_THAN       reduce using rule 118 (apF -> .)
+    MORE_THAN       reduce using rule 118 (apF -> .)
+    NOT             reduce using rule 118 (apF -> .)
+    AND             reduce using rule 118 (apF -> .)
+    OR              reduce using rule 118 (apF -> .)
+    SEMICOLON       reduce using rule 118 (apF -> .)
+    R_PAR           reduce using rule 118 (apF -> .)
+    COMMA           reduce using rule 118 (apF -> .)
+    DOT             reduce using rule 118 (apF -> .)
+    R_SQ            reduce using rule 118 (apF -> .)
+
+    apF                            shift and go to state 165
+
+state 140
+
+    (111) varcte -> Mcall . call
+    (112) call -> .
+
+    MULT            reduce using rule 112 (call -> .)
+    DIV             reduce using rule 112 (call -> .)
+    PLUS            reduce using rule 112 (call -> .)
+    MINUS           reduce using rule 112 (call -> .)
+    EQUALS          reduce using rule 112 (call -> .)
+    EQUAL_MAJOR     reduce using rule 112 (call -> .)
+    EQUAL_MINOR     reduce using rule 112 (call -> .)
+    LESS_THAN       reduce using rule 112 (call -> .)
+    MORE_THAN       reduce using rule 112 (call -> .)
+    NOT             reduce using rule 112 (call -> .)
+    AND             reduce using rule 112 (call -> .)
+    OR              reduce using rule 112 (call -> .)
+    SEMICOLON       reduce using rule 112 (call -> .)
+    R_PAR           reduce using rule 112 (call -> .)
+    COMMA           reduce using rule 112 (call -> .)
+    DOT             reduce using rule 112 (call -> .)
+    R_SQ            reduce using rule 112 (call -> .)
+
+    call                           shift and go to state 166
+
+state 141
+
+    (69) variable -> ID ch arr . va
+    (114) va -> .
+
+    ASSIGN          reduce using rule 114 (va -> .)
+    SEMICOLON       reduce using rule 114 (va -> .)
+
+    va                             shift and go to state 167
+
+state 142
+
+    (70) arr -> L_SQ . dim R_SQ
+    (72) dim -> . expres mar
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    dim                            shift and go to state 168
+    expres                         shift and go to state 169
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 143
+
+    (71) arr -> empty .
+
+    ASSIGN          reduce using rule 71 (arr -> empty .)
+    SEMICOLON       reduce using rule 71 (arr -> empty .)
+    MULT            reduce using rule 71 (arr -> empty .)
+    DIV             reduce using rule 71 (arr -> empty .)
+    PLUS            reduce using rule 71 (arr -> empty .)
+    MINUS           reduce using rule 71 (arr -> empty .)
+    EQUALS          reduce using rule 71 (arr -> empty .)
+    EQUAL_MAJOR     reduce using rule 71 (arr -> empty .)
+    EQUAL_MINOR     reduce using rule 71 (arr -> empty .)
+    LESS_THAN       reduce using rule 71 (arr -> empty .)
+    MORE_THAN       reduce using rule 71 (arr -> empty .)
+    NOT             reduce using rule 71 (arr -> empty .)
+    AND             reduce using rule 71 (arr -> empty .)
+    OR              reduce using rule 71 (arr -> empty .)
+    R_PAR           reduce using rule 71 (arr -> empty .)
+    COMMA           reduce using rule 71 (arr -> empty .)
+    DOT             reduce using rule 71 (arr -> empty .)
+    R_SQ            reduce using rule 71 (arr -> empty .)
+
+
+state 144
+
+    (45) Mcall -> ID chkmod L_PAR . era cparam parck R_PAR
+    (47) era -> .
+
+    L_PAR           reduce using rule 47 (era -> .)
+    PLUS            reduce using rule 47 (era -> .)
+    MINUS           reduce using rule 47 (era -> .)
+    ADD             reduce using rule 47 (era -> .)
+    DEC             reduce using rule 47 (era -> .)
+    R_PAR           reduce using rule 47 (era -> .)
+    ID              reduce using rule 47 (era -> .)
+    CTEC            reduce using rule 47 (era -> .)
+    CTES            reduce using rule 47 (era -> .)
+    CTEI            reduce using rule 47 (era -> .)
+    CTEF            reduce using rule 47 (era -> .)
+
+    era                            shift and go to state 170
+
+state 145
+
+    (26) param -> ID COLON type xparam .
+
+    R_PAR           reduce using rule 26 (param -> ID COLON type xparam .)
+
+
+state 146
+
+    (28) xparam -> COMMA . ID COLON type xparam
+
+    ID              shift and go to state 171
+
+
+state 147
+
+    (29) xparam -> empty .
+
+    R_PAR           reduce using rule 29 (xparam -> empty .)
+
+
+state 148
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON . pVars bloq endfun
+    (3) pVars -> . vars
+    (4) pVars -> . empty
+    (5) vars -> . VAR COLON vars2
+    (120) empty -> .
+
+    VAR             shift and go to state 8
+    L_COR           reduce using rule 120 (empty -> .)
+
+    pVars                          shift and go to state 172
+    vars                           shift and go to state 6
+    empty                          shift and go to state 7
+
+state 149
+
+    (53) cond -> IF L_PAR expres conval . R_PAR THEN bloq condex conf SEMICOLON
+
+    R_PAR           shift and go to state 173
+
+
+state 150
+
+    (59) whil -> WHILE L_PAR wju expres . conval R_PAR DO bloq back
+    (54) conval -> .
+
+    R_PAR           reduce using rule 54 (conval -> .)
+
+    conval                         shift and go to state 174
+
+state 151
+
+    (62) prin -> PRINT L_PAR str ptr . R_PAR SEMICOLON
+
+    R_PAR           shift and go to state 175
+
+
+state 152
+
+    (63) ptr -> COMMA . str ptr
+    (65) str -> . expres
+    (66) str -> . CTES
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+  ! shift/reduce conflict for CTES resolved as shift
+    CTES            shift and go to state 106
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+  ! CTES            [ reduce using rule 120 (empty -> .) ]
+
+    str                            shift and go to state 176
+    expres                         shift and go to state 105
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 153
+
+    (64) ptr -> empty .
+
+    R_PAR           reduce using rule 64 (ptr -> empty .)
+
+
+state 154
+
+    (68) asign -> variable ASSIGN expres SEMICOLON .
+
+    IF              reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    WHILE           reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    PRINT           reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    READ            reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    RETURN          reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    ID              reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+    R_COR           reduce using rule 68 (asign -> variable ASSIGN expres SEMICOLON .)
+
+
+state 155
+
+    (67) read -> READ COLON variable SEMICOLON .
+
+    IF              reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    WHILE           reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    PRINT           reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    READ            reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    RETURN          reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    ID              reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+    R_COR           reduce using rule 67 (read -> READ COLON variable SEMICOLON .)
+
+
+state 156
+
+    (76) c -> con contr . c
+    (76) c -> . con contr c
+    (77) c -> . empty
+    (78) con -> . AND
+    (79) con -> . OR
+    (120) empty -> .
+
+    AND             shift and go to state 114
+    OR              shift and go to state 115
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    con                            shift and go to state 112
+    c                              shift and go to state 177
+    empty                          shift and go to state 113
+
+state 157
+
+    (81) cn -> cont exp . cn
+    (81) cn -> . cont exp cn
+    (82) cn -> . empty
+    (83) cont -> . EQUALS
+    (84) cont -> . EQUAL_MAJOR
+    (85) cont -> . EQUAL_MINOR
+    (86) cont -> . LESS_THAN
+    (87) cont -> . MORE_THAN
+    (88) cont -> . NOT
+    (120) empty -> .
+
+    EQUALS          shift and go to state 119
+    EQUAL_MAJOR     shift and go to state 120
+    EQUAL_MINOR     shift and go to state 121
+    LESS_THAN       shift and go to state 122
+    MORE_THAN       shift and go to state 123
+    NOT             shift and go to state 124
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    cont                           shift and go to state 117
+    cn                             shift and go to state 178
+    empty                          shift and go to state 118
+
+state 158
+
+    (90) t -> opt term . t
+    (90) t -> . opt term t
+    (91) t -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (120) empty -> .
+
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    EQUALS          reduce using rule 120 (empty -> .)
+    EQUAL_MAJOR     reduce using rule 120 (empty -> .)
+    EQUAL_MINOR     reduce using rule 120 (empty -> .)
+    LESS_THAN       reduce using rule 120 (empty -> .)
+    MORE_THAN       reduce using rule 120 (empty -> .)
+    NOT             reduce using rule 120 (empty -> .)
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    opt                            shift and go to state 126
+    t                              shift and go to state 179
+    empty                          shift and go to state 127
+
+state 159
+
+    (97) f -> fopt fact . f
+    (97) f -> . fopt fact f
+    (98) f -> . empty
+    (99) fopt -> . MULT
+    (100) fopt -> . DIV
+    (120) empty -> .
+
+    MULT            shift and go to state 131
+    DIV             shift and go to state 132
+    PLUS            reduce using rule 120 (empty -> .)
+    MINUS           reduce using rule 120 (empty -> .)
+    EQUALS          reduce using rule 120 (empty -> .)
+    EQUAL_MAJOR     reduce using rule 120 (empty -> .)
+    EQUAL_MINOR     reduce using rule 120 (empty -> .)
+    LESS_THAN       reduce using rule 120 (empty -> .)
+    MORE_THAN       reduce using rule 120 (empty -> .)
+    NOT             reduce using rule 120 (empty -> .)
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    fopt                           shift and go to state 129
+    f                              shift and go to state 180
+    empty                          shift and go to state 130
+
+state 160
+
+    (101) fact -> L_PAR expres R_PAR .
+
+    MULT            reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    DIV             reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    PLUS            reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    MINUS           reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    EQUALS          reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    EQUAL_MAJOR     reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    EQUAL_MINOR     reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    LESS_THAN       reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    MORE_THAN       reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    NOT             reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    AND             reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    OR              reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    SEMICOLON       reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    R_PAR           reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    COMMA           reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    DOT             reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+    R_SQ            reduce using rule 101 (fact -> L_PAR expres R_PAR .)
+
+
+state 161
+
+    (106) varcte -> ID ch . arr va
+    (70) arr -> . L_SQ dim R_SQ
+    (71) arr -> . empty
+    (120) empty -> .
+
+    L_SQ            shift and go to state 142
+    MULT            reduce using rule 120 (empty -> .)
+    DIV             reduce using rule 120 (empty -> .)
+    PLUS            reduce using rule 120 (empty -> .)
+    MINUS           reduce using rule 120 (empty -> .)
+    EQUALS          reduce using rule 120 (empty -> .)
+    EQUAL_MAJOR     reduce using rule 120 (empty -> .)
+    EQUAL_MINOR     reduce using rule 120 (empty -> .)
+    LESS_THAN       reduce using rule 120 (empty -> .)
+    MORE_THAN       reduce using rule 120 (empty -> .)
+    NOT             reduce using rule 120 (empty -> .)
+    AND             reduce using rule 120 (empty -> .)
+    OR              reduce using rule 120 (empty -> .)
+    SEMICOLON       reduce using rule 120 (empty -> .)
+    R_PAR           reduce using rule 120 (empty -> .)
+    COMMA           reduce using rule 120 (empty -> .)
+    DOT             reduce using rule 120 (empty -> .)
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    arr                            shift and go to state 181
+    empty                          shift and go to state 143
+
+state 162
+
+    (107) varcte -> CTEC apC .
+
+    MULT            reduce using rule 107 (varcte -> CTEC apC .)
+    DIV             reduce using rule 107 (varcte -> CTEC apC .)
+    PLUS            reduce using rule 107 (varcte -> CTEC apC .)
+    MINUS           reduce using rule 107 (varcte -> CTEC apC .)
+    EQUALS          reduce using rule 107 (varcte -> CTEC apC .)
+    EQUAL_MAJOR     reduce using rule 107 (varcte -> CTEC apC .)
+    EQUAL_MINOR     reduce using rule 107 (varcte -> CTEC apC .)
+    LESS_THAN       reduce using rule 107 (varcte -> CTEC apC .)
+    MORE_THAN       reduce using rule 107 (varcte -> CTEC apC .)
+    NOT             reduce using rule 107 (varcte -> CTEC apC .)
+    AND             reduce using rule 107 (varcte -> CTEC apC .)
+    OR              reduce using rule 107 (varcte -> CTEC apC .)
+    SEMICOLON       reduce using rule 107 (varcte -> CTEC apC .)
+    R_PAR           reduce using rule 107 (varcte -> CTEC apC .)
+    COMMA           reduce using rule 107 (varcte -> CTEC apC .)
+    DOT             reduce using rule 107 (varcte -> CTEC apC .)
+    R_SQ            reduce using rule 107 (varcte -> CTEC apC .)
+
+
+state 163
+
+    (108) varcte -> CTES apS .
+
+    MULT            reduce using rule 108 (varcte -> CTES apS .)
+    DIV             reduce using rule 108 (varcte -> CTES apS .)
+    PLUS            reduce using rule 108 (varcte -> CTES apS .)
+    MINUS           reduce using rule 108 (varcte -> CTES apS .)
+    EQUALS          reduce using rule 108 (varcte -> CTES apS .)
+    EQUAL_MAJOR     reduce using rule 108 (varcte -> CTES apS .)
+    EQUAL_MINOR     reduce using rule 108 (varcte -> CTES apS .)
+    LESS_THAN       reduce using rule 108 (varcte -> CTES apS .)
+    MORE_THAN       reduce using rule 108 (varcte -> CTES apS .)
+    NOT             reduce using rule 108 (varcte -> CTES apS .)
+    AND             reduce using rule 108 (varcte -> CTES apS .)
+    OR              reduce using rule 108 (varcte -> CTES apS .)
+    SEMICOLON       reduce using rule 108 (varcte -> CTES apS .)
+    R_PAR           reduce using rule 108 (varcte -> CTES apS .)
+    COMMA           reduce using rule 108 (varcte -> CTES apS .)
+    DOT             reduce using rule 108 (varcte -> CTES apS .)
+    R_SQ            reduce using rule 108 (varcte -> CTES apS .)
+
+
+state 164
+
+    (109) varcte -> CTEI apI .
+
+    MULT            reduce using rule 109 (varcte -> CTEI apI .)
+    DIV             reduce using rule 109 (varcte -> CTEI apI .)
+    PLUS            reduce using rule 109 (varcte -> CTEI apI .)
+    MINUS           reduce using rule 109 (varcte -> CTEI apI .)
+    EQUALS          reduce using rule 109 (varcte -> CTEI apI .)
+    EQUAL_MAJOR     reduce using rule 109 (varcte -> CTEI apI .)
+    EQUAL_MINOR     reduce using rule 109 (varcte -> CTEI apI .)
+    LESS_THAN       reduce using rule 109 (varcte -> CTEI apI .)
+    MORE_THAN       reduce using rule 109 (varcte -> CTEI apI .)
+    NOT             reduce using rule 109 (varcte -> CTEI apI .)
+    AND             reduce using rule 109 (varcte -> CTEI apI .)
+    OR              reduce using rule 109 (varcte -> CTEI apI .)
+    SEMICOLON       reduce using rule 109 (varcte -> CTEI apI .)
+    R_PAR           reduce using rule 109 (varcte -> CTEI apI .)
+    COMMA           reduce using rule 109 (varcte -> CTEI apI .)
+    DOT             reduce using rule 109 (varcte -> CTEI apI .)
+    R_SQ            reduce using rule 109 (varcte -> CTEI apI .)
+
+
+state 165
+
+    (110) varcte -> CTEF apF .
+
+    MULT            reduce using rule 110 (varcte -> CTEF apF .)
+    DIV             reduce using rule 110 (varcte -> CTEF apF .)
+    PLUS            reduce using rule 110 (varcte -> CTEF apF .)
+    MINUS           reduce using rule 110 (varcte -> CTEF apF .)
+    EQUALS          reduce using rule 110 (varcte -> CTEF apF .)
+    EQUAL_MAJOR     reduce using rule 110 (varcte -> CTEF apF .)
+    EQUAL_MINOR     reduce using rule 110 (varcte -> CTEF apF .)
+    LESS_THAN       reduce using rule 110 (varcte -> CTEF apF .)
+    MORE_THAN       reduce using rule 110 (varcte -> CTEF apF .)
+    NOT             reduce using rule 110 (varcte -> CTEF apF .)
+    AND             reduce using rule 110 (varcte -> CTEF apF .)
+    OR              reduce using rule 110 (varcte -> CTEF apF .)
+    SEMICOLON       reduce using rule 110 (varcte -> CTEF apF .)
+    R_PAR           reduce using rule 110 (varcte -> CTEF apF .)
+    COMMA           reduce using rule 110 (varcte -> CTEF apF .)
+    DOT             reduce using rule 110 (varcte -> CTEF apF .)
+    R_SQ            reduce using rule 110 (varcte -> CTEF apF .)
+
+
+state 166
+
+    (111) varcte -> Mcall call .
+
+    MULT            reduce using rule 111 (varcte -> Mcall call .)
+    DIV             reduce using rule 111 (varcte -> Mcall call .)
+    PLUS            reduce using rule 111 (varcte -> Mcall call .)
+    MINUS           reduce using rule 111 (varcte -> Mcall call .)
+    EQUALS          reduce using rule 111 (varcte -> Mcall call .)
+    EQUAL_MAJOR     reduce using rule 111 (varcte -> Mcall call .)
+    EQUAL_MINOR     reduce using rule 111 (varcte -> Mcall call .)
+    LESS_THAN       reduce using rule 111 (varcte -> Mcall call .)
+    MORE_THAN       reduce using rule 111 (varcte -> Mcall call .)
+    NOT             reduce using rule 111 (varcte -> Mcall call .)
+    AND             reduce using rule 111 (varcte -> Mcall call .)
+    OR              reduce using rule 111 (varcte -> Mcall call .)
+    SEMICOLON       reduce using rule 111 (varcte -> Mcall call .)
+    R_PAR           reduce using rule 111 (varcte -> Mcall call .)
+    COMMA           reduce using rule 111 (varcte -> Mcall call .)
+    DOT             reduce using rule 111 (varcte -> Mcall call .)
+    R_SQ            reduce using rule 111 (varcte -> Mcall call .)
+
+
+state 167
+
+    (69) variable -> ID ch arr va .
+
+    ASSIGN          reduce using rule 69 (variable -> ID ch arr va .)
+    SEMICOLON       reduce using rule 69 (variable -> ID ch arr va .)
+
+
+state 168
+
+    (70) arr -> L_SQ dim . R_SQ
+
+    R_SQ            shift and go to state 182
+
+
+state 169
+
+    (72) dim -> expres . mar
+    (73) mar -> . DOT expres
+    (74) mar -> . empty
+    (120) empty -> .
+
+    DOT             shift and go to state 184
+    R_SQ            reduce using rule 120 (empty -> .)
+
+    mar                            shift and go to state 183
+    empty                          shift and go to state 185
+
+state 170
+
+    (45) Mcall -> ID chkmod L_PAR era . cparam parck R_PAR
+    (48) cparam -> . expres cxparam
+    (49) cparam -> . empty
+    (75) expres -> . contr c
+    (120) empty -> .
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+
+    R_PAR           reduce using rule 120 (empty -> .)
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+
+    cparam                         shift and go to state 186
+    expres                         shift and go to state 187
+    empty                          shift and go to state 188
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+
+state 171
+
+    (28) xparam -> COMMA ID . COLON type xparam
+
+    COLON           shift and go to state 189
+
+
+state 172
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars . bloq endfun
+    (34) bloq -> . L_COR statbloq R_COR
+
+    L_COR           shift and go to state 49
+
+    bloq                           shift and go to state 190
+
+state 173
+
+    (53) cond -> IF L_PAR expres conval R_PAR . THEN bloq condex conf SEMICOLON
+
+    THEN            shift and go to state 191
+
+
+state 174
+
+    (59) whil -> WHILE L_PAR wju expres conval . R_PAR DO bloq back
+
+    R_PAR           shift and go to state 192
+
+
+state 175
+
+    (62) prin -> PRINT L_PAR str ptr R_PAR . SEMICOLON
+
+    SEMICOLON       shift and go to state 193
+
+
+state 176
+
+    (63) ptr -> COMMA str . ptr
+    (63) ptr -> . COMMA str ptr
+    (64) ptr -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 152
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    ptr                            shift and go to state 194
+    empty                          shift and go to state 153
+
+state 177
+
+    (76) c -> con contr c .
+
+    SEMICOLON       reduce using rule 76 (c -> con contr c .)
+    R_PAR           reduce using rule 76 (c -> con contr c .)
+    COMMA           reduce using rule 76 (c -> con contr c .)
+    DOT             reduce using rule 76 (c -> con contr c .)
+    R_SQ            reduce using rule 76 (c -> con contr c .)
+
+
+state 178
+
+    (81) cn -> cont exp cn .
+
+    AND             reduce using rule 81 (cn -> cont exp cn .)
+    OR              reduce using rule 81 (cn -> cont exp cn .)
+    SEMICOLON       reduce using rule 81 (cn -> cont exp cn .)
+    R_PAR           reduce using rule 81 (cn -> cont exp cn .)
+    COMMA           reduce using rule 81 (cn -> cont exp cn .)
+    DOT             reduce using rule 81 (cn -> cont exp cn .)
+    R_SQ            reduce using rule 81 (cn -> cont exp cn .)
+
+
+state 179
+
+    (90) t -> opt term t .
+
+    EQUALS          reduce using rule 90 (t -> opt term t .)
+    EQUAL_MAJOR     reduce using rule 90 (t -> opt term t .)
+    EQUAL_MINOR     reduce using rule 90 (t -> opt term t .)
+    LESS_THAN       reduce using rule 90 (t -> opt term t .)
+    MORE_THAN       reduce using rule 90 (t -> opt term t .)
+    NOT             reduce using rule 90 (t -> opt term t .)
+    AND             reduce using rule 90 (t -> opt term t .)
+    OR              reduce using rule 90 (t -> opt term t .)
+    SEMICOLON       reduce using rule 90 (t -> opt term t .)
+    R_PAR           reduce using rule 90 (t -> opt term t .)
+    COMMA           reduce using rule 90 (t -> opt term t .)
+    DOT             reduce using rule 90 (t -> opt term t .)
+    R_SQ            reduce using rule 90 (t -> opt term t .)
+
+
+state 180
+
+    (97) f -> fopt fact f .
+
+    PLUS            reduce using rule 97 (f -> fopt fact f .)
+    MINUS           reduce using rule 97 (f -> fopt fact f .)
+    EQUALS          reduce using rule 97 (f -> fopt fact f .)
+    EQUAL_MAJOR     reduce using rule 97 (f -> fopt fact f .)
+    EQUAL_MINOR     reduce using rule 97 (f -> fopt fact f .)
+    LESS_THAN       reduce using rule 97 (f -> fopt fact f .)
+    MORE_THAN       reduce using rule 97 (f -> fopt fact f .)
+    NOT             reduce using rule 97 (f -> fopt fact f .)
+    AND             reduce using rule 97 (f -> fopt fact f .)
+    OR              reduce using rule 97 (f -> fopt fact f .)
+    SEMICOLON       reduce using rule 97 (f -> fopt fact f .)
+    R_PAR           reduce using rule 97 (f -> fopt fact f .)
+    COMMA           reduce using rule 97 (f -> fopt fact f .)
+    DOT             reduce using rule 97 (f -> fopt fact f .)
+    R_SQ            reduce using rule 97 (f -> fopt fact f .)
+
+
+state 181
+
+    (106) varcte -> ID ch arr . va
+    (114) va -> .
+
+    MULT            reduce using rule 114 (va -> .)
+    DIV             reduce using rule 114 (va -> .)
+    PLUS            reduce using rule 114 (va -> .)
+    MINUS           reduce using rule 114 (va -> .)
+    EQUALS          reduce using rule 114 (va -> .)
+    EQUAL_MAJOR     reduce using rule 114 (va -> .)
+    EQUAL_MINOR     reduce using rule 114 (va -> .)
+    LESS_THAN       reduce using rule 114 (va -> .)
+    MORE_THAN       reduce using rule 114 (va -> .)
+    NOT             reduce using rule 114 (va -> .)
+    AND             reduce using rule 114 (va -> .)
+    OR              reduce using rule 114 (va -> .)
+    SEMICOLON       reduce using rule 114 (va -> .)
+    R_PAR           reduce using rule 114 (va -> .)
+    COMMA           reduce using rule 114 (va -> .)
+    DOT             reduce using rule 114 (va -> .)
+    R_SQ            reduce using rule 114 (va -> .)
+
+    va                             shift and go to state 195
+
+state 182
+
+    (70) arr -> L_SQ dim R_SQ .
+
+    ASSIGN          reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    SEMICOLON       reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    MULT            reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    DIV             reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    PLUS            reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    MINUS           reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    EQUALS          reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    EQUAL_MAJOR     reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    EQUAL_MINOR     reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    LESS_THAN       reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    MORE_THAN       reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    NOT             reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    AND             reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    OR              reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    R_PAR           reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    COMMA           reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    DOT             reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+    R_SQ            reduce using rule 70 (arr -> L_SQ dim R_SQ .)
+
+
+state 183
+
+    (72) dim -> expres mar .
+
+    R_SQ            reduce using rule 72 (dim -> expres mar .)
+
+
+state 184
+
+    (73) mar -> DOT . expres
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 196
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 185
+
+    (74) mar -> empty .
+
+    R_SQ            reduce using rule 74 (mar -> empty .)
+
+
+state 186
+
+    (45) Mcall -> ID chkmod L_PAR era cparam . parck R_PAR
+    (52) parck -> .
+
+    R_PAR           reduce using rule 52 (parck -> .)
+
+    parck                          shift and go to state 197
+
+state 187
+
+    (48) cparam -> expres . cxparam
+    (50) cxparam -> . COMMA expres cxparam
+    (51) cxparam -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 199
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    cxparam                        shift and go to state 198
+    empty                          shift and go to state 200
+
+state 188
+
+    (49) cparam -> empty .
+    (105) sign -> empty .
+
+    R_PAR           reduce using rule 49 (cparam -> empty .)
+    ID              reduce using rule 105 (sign -> empty .)
+    CTEC            reduce using rule 105 (sign -> empty .)
+    CTES            reduce using rule 105 (sign -> empty .)
+    CTEI            reduce using rule 105 (sign -> empty .)
+    CTEF            reduce using rule 105 (sign -> empty .)
+
+
+state 189
+
+    (28) xparam -> COMMA ID COLON . type xparam
+    (9) type -> . INT
+    (10) type -> . FLOAT
+    (11) type -> . CHAR
+
+    INT             shift and go to state 25
+    FLOAT           shift and go to state 26
+    CHAR            shift and go to state 27
+
+    type                           shift and go to state 201
+
+state 190
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq . endfun
+    (31) endfun -> .
+
+    FUNC            reduce using rule 31 (endfun -> .)
+    MAIN            reduce using rule 31 (endfun -> .)
+
+    endfun                         shift and go to state 202
+
+state 191
+
+    (53) cond -> IF L_PAR expres conval R_PAR THEN . bloq condex conf SEMICOLON
+    (34) bloq -> . L_COR statbloq R_COR
+
+    L_COR           shift and go to state 49
+
+    bloq                           shift and go to state 203
+
+state 192
+
+    (59) whil -> WHILE L_PAR wju expres conval R_PAR . DO bloq back
+
+    DO              shift and go to state 204
+
+
+state 193
+
+    (62) prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .
+
+    IF              reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    WHILE           reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    PRINT           reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    READ            reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    RETURN          reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    ID              reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+    R_COR           reduce using rule 62 (prin -> PRINT L_PAR str ptr R_PAR SEMICOLON .)
+
+
+state 194
+
+    (63) ptr -> COMMA str ptr .
+
+    R_PAR           reduce using rule 63 (ptr -> COMMA str ptr .)
+
+
+state 195
+
+    (106) varcte -> ID ch arr va .
+
+    MULT            reduce using rule 106 (varcte -> ID ch arr va .)
+    DIV             reduce using rule 106 (varcte -> ID ch arr va .)
+    PLUS            reduce using rule 106 (varcte -> ID ch arr va .)
+    MINUS           reduce using rule 106 (varcte -> ID ch arr va .)
+    EQUALS          reduce using rule 106 (varcte -> ID ch arr va .)
+    EQUAL_MAJOR     reduce using rule 106 (varcte -> ID ch arr va .)
+    EQUAL_MINOR     reduce using rule 106 (varcte -> ID ch arr va .)
+    LESS_THAN       reduce using rule 106 (varcte -> ID ch arr va .)
+    MORE_THAN       reduce using rule 106 (varcte -> ID ch arr va .)
+    NOT             reduce using rule 106 (varcte -> ID ch arr va .)
+    AND             reduce using rule 106 (varcte -> ID ch arr va .)
+    OR              reduce using rule 106 (varcte -> ID ch arr va .)
+    SEMICOLON       reduce using rule 106 (varcte -> ID ch arr va .)
+    R_PAR           reduce using rule 106 (varcte -> ID ch arr va .)
+    COMMA           reduce using rule 106 (varcte -> ID ch arr va .)
+    DOT             reduce using rule 106 (varcte -> ID ch arr va .)
+    R_SQ            reduce using rule 106 (varcte -> ID ch arr va .)
+
+
+state 196
+
+    (73) mar -> DOT expres .
+
+    R_SQ            reduce using rule 73 (mar -> DOT expres .)
+
+
+state 197
+
+    (45) Mcall -> ID chkmod L_PAR era cparam parck . R_PAR
+
+    R_PAR           shift and go to state 205
+
+
+state 198
+
+    (48) cparam -> expres cxparam .
+
+    R_PAR           reduce using rule 48 (cparam -> expres cxparam .)
+
+
+state 199
+
+    (50) cxparam -> COMMA . expres cxparam
+    (75) expres -> . contr c
+    (80) contr -> . exp cn
+    (89) exp -> . term t
+    (96) term -> . fact f
+    (101) fact -> . L_PAR expres R_PAR
+    (102) fact -> . sign varcte
+    (103) sign -> . opt
+    (104) sign -> . Un
+    (105) sign -> . empty
+    (94) opt -> . PLUS
+    (95) opt -> . MINUS
+    (92) Un -> . ADD
+    (93) Un -> . DEC
+    (120) empty -> .
+
+    L_PAR           shift and go to state 89
+    PLUS            shift and go to state 94
+    MINUS           shift and go to state 95
+    ADD             shift and go to state 96
+    DEC             shift and go to state 97
+    ID              reduce using rule 120 (empty -> .)
+    CTEC            reduce using rule 120 (empty -> .)
+    CTES            reduce using rule 120 (empty -> .)
+    CTEI            reduce using rule 120 (empty -> .)
+    CTEF            reduce using rule 120 (empty -> .)
+
+    expres                         shift and go to state 206
+    contr                          shift and go to state 85
+    exp                            shift and go to state 86
+    term                           shift and go to state 87
+    fact                           shift and go to state 88
+    sign                           shift and go to state 90
+    opt                            shift and go to state 91
+    Un                             shift and go to state 92
+    empty                          shift and go to state 93
+
+state 200
+
+    (51) cxparam -> empty .
+
+    R_PAR           reduce using rule 51 (cxparam -> empty .)
+
+
+state 201
+
+    (28) xparam -> COMMA ID COLON type . xparam
+    (28) xparam -> . COMMA ID COLON type xparam
+    (29) xparam -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 146
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    xparam                         shift and go to state 207
+    empty                          shift and go to state 147
+
+state 202
+
+    (22) Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun .
+
+    FUNC            reduce using rule 22 (Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun .)
+    MAIN            reduce using rule 22 (Fun -> FUNC Ftype ID mst L_PAR param paran R_PAR SEMICOLON pVars bloq endfun .)
+
+
+state 203
+
+    (53) cond -> IF L_PAR expres conval R_PAR THEN bloq . condex conf SEMICOLON
+    (56) condex -> . ELSE jum bloq
+    (57) condex -> . empty
+    (120) empty -> .
+
+    ELSE            shift and go to state 209
+    SEMICOLON       reduce using rule 120 (empty -> .)
+
+    condex                         shift and go to state 208
+    empty                          shift and go to state 210
+
+state 204
+
+    (59) whil -> WHILE L_PAR wju expres conval R_PAR DO . bloq back
+    (34) bloq -> . L_COR statbloq R_COR
+
+    L_COR           shift and go to state 49
+
+    bloq                           shift and go to state 211
+
+state 205
+
+    (45) Mcall -> ID chkmod L_PAR era cparam parck R_PAR .
+
+    SEMICOLON       reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    MULT            reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    DIV             reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    PLUS            reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    MINUS           reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    EQUALS          reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    EQUAL_MAJOR     reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    EQUAL_MINOR     reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    LESS_THAN       reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    MORE_THAN       reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    NOT             reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    AND             reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    OR              reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    R_PAR           reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    COMMA           reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    DOT             reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+    R_SQ            reduce using rule 45 (Mcall -> ID chkmod L_PAR era cparam parck R_PAR .)
+
+
+state 206
+
+    (50) cxparam -> COMMA expres . cxparam
+    (50) cxparam -> . COMMA expres cxparam
+    (51) cxparam -> . empty
+    (120) empty -> .
+
+    COMMA           shift and go to state 199
+    R_PAR           reduce using rule 120 (empty -> .)
+
+    cxparam                        shift and go to state 212
+    empty                          shift and go to state 200
+
+state 207
+
+    (28) xparam -> COMMA ID COLON type xparam .
+
+    R_PAR           reduce using rule 28 (xparam -> COMMA ID COLON type xparam .)
+
+
+state 208
+
+    (53) cond -> IF L_PAR expres conval R_PAR THEN bloq condex . conf SEMICOLON
+    (55) conf -> .
+
+    SEMICOLON       reduce using rule 55 (conf -> .)
+
+    conf                           shift and go to state 213
+
+state 209
+
+    (56) condex -> ELSE . jum bloq
+    (58) jum -> .
+
+    L_COR           reduce using rule 58 (jum -> .)
+
+    jum                            shift and go to state 214
+
+state 210
+
+    (57) condex -> empty .
+
+    SEMICOLON       reduce using rule 57 (condex -> empty .)
+
+
+state 211
+
+    (59) whil -> WHILE L_PAR wju expres conval R_PAR DO bloq . back
+    (61) back -> .
+
+    IF              reduce using rule 61 (back -> .)
+    WHILE           reduce using rule 61 (back -> .)
+    PRINT           reduce using rule 61 (back -> .)
+    READ            reduce using rule 61 (back -> .)
+    RETURN          reduce using rule 61 (back -> .)
+    ID              reduce using rule 61 (back -> .)
+    R_COR           reduce using rule 61 (back -> .)
+
+    back                           shift and go to state 215
+
+state 212
+
+    (50) cxparam -> COMMA expres cxparam .
+
+    R_PAR           reduce using rule 50 (cxparam -> COMMA expres cxparam .)
+
+
+state 213
+
+    (53) cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf . SEMICOLON
+
+    SEMICOLON       shift and go to state 216
+
+
+state 214
+
+    (56) condex -> ELSE jum . bloq
+    (34) bloq -> . L_COR statbloq R_COR
+
+    L_COR           shift and go to state 49
+
+    bloq                           shift and go to state 217
+
+state 215
+
+    (59) whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .
+
+    IF              reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    WHILE           reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    PRINT           reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    READ            reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    RETURN          reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    ID              reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+    R_COR           reduce using rule 59 (whil -> WHILE L_PAR wju expres conval R_PAR DO bloq back .)
+
+
+state 216
+
+    (53) cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .
+
+    IF              reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    WHILE           reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    PRINT           reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    READ            reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    RETURN          reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    ID              reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+    R_COR           reduce using rule 53 (cond -> IF L_PAR expres conval R_PAR THEN bloq condex conf SEMICOLON .)
+
+
+state 217
+
+    (56) condex -> ELSE jum bloq .
+
+    SEMICOLON       reduce using rule 56 (condex -> ELSE jum bloq .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for CTES in state 80 resolved as shift
+WARNING: shift/reduce conflict for CTES in state 152 resolved as shift
